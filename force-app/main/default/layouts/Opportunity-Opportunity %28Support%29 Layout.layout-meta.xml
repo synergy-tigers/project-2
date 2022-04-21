@@ -30,11 +30,11 @@
                 <field>NextStep</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Product_InterestO__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Opportunity_Cost__c</field>
             </layoutItems>
         </layoutColumns>
