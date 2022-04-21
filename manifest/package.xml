@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members></members>
+        <members>*</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>ApexComponent</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>ApexPage</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>ApexTestSuite</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>Flow</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>LightningComponentBundle</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>StaticResource</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>Profile</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>PermissionSet</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>Report</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>Dashboard</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>Role</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>CustomTab</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>FlowDefinition</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>FlexiPage</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>HomePageLayout</name>
     </types>
     <types>
-        <members></members>
+        <members>*</members>
         <name>Layout</name>
     </types>
     <version>54.0</version>
