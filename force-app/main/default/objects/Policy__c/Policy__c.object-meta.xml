@@ -155,13 +155,11 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Policy</label>
     <nameField>
-        <displayFormat>Pol#-{000}</displayFormat>
-        <label>Policy Number</label>
+        <label>Policy</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Policies</pluralLabel>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

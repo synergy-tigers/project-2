@@ -251,14 +251,6 @@
         <layout>Policy__c-Policy Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Policy__c-Policy Layout</layout>
-        <recordType>Policy__c.Health_Insurance</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Policy__c-Policy Layout</layout>
-        <recordType>Policy__c.Life_Insurance</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -483,16 +475,6 @@
     <layoutAssignments>
         <layout>WorkTypeGroup-Work Type Group Layout</layout>
     </layoutAssignments>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Policy__c.Health_Insurance</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Policy__c.Life_Insurance</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
     <userLicense>Silver Partner</userLicense>
     <userPermissions>
         <enabled>true</enabled>
