@@ -46,6 +46,9 @@
     </types>
     <types>
         <members>Admin</members>
+        <members>Custom: Agent</members>
+        <members>Custom: Field Trainer</members>
+        <members>Custom: Unit Sales Manager</members>
         <name>Profile</name>
     </types>
     <types>
