@@ -245,7 +245,7 @@
             <targetReference>Get_Order_Details</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Obsolete</status>
     <variables>
         <name>New_Order</name>
         <dataType>SObject</dataType>
