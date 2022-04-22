@@ -3,7 +3,7 @@
     <fullName>Product_InterestO__c</fullName>
     <externalId>false</externalId>
     <label>Product Interest</label>
-    <required>false</required>
+    <required>true</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
