@@ -42,7 +42,7 @@
                 <field>TotalOpportunityQuantity</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Opportunity_Cost__c</field>
             </layoutItems>
             <layoutItems>
