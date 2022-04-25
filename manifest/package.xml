@@ -46,9 +46,9 @@
     </types>
     <types>
         <members>Admin</members>
-        <members>Custom: Agent</members>
-        <members>Custom: Field Trainer</members>
-        <members>Custom: Unit Sales Manager</members>
+        <members>Custom%3A Agent</members>
+        <members>Custom%3A Field Trainer</members>
+        <members>Custom%3A Unit Sales Manager</members>
         <name>Profile</name>
     </types>
     <types>
@@ -70,10 +70,6 @@
     <types>
         <members>*</members>
         <name>CustomTab</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>FlowDefinition</name>
     </types>
     <types>
         <members>*</members>
