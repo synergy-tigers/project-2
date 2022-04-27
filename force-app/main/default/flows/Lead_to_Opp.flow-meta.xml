@@ -73,7 +73,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Obsolete</status>
     <variables>
         <name>Dateforoppinput</name>
         <dataType>DateTime</dataType>
