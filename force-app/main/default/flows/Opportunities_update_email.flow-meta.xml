@@ -91,12 +91,12 @@
         <object>Opportunity</object>
         <schedule>
             <frequency>Weekly</frequency>
-            <startDate>2022-04-27</startDate>
-            <startTime>12:03:00.000Z</startTime>
+            <startDate>2022-04-25</startDate>
+            <startTime>07:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>EmailTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
