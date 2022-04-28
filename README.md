@@ -1,18 +1,92 @@
-# Salesforce DX Project: Next Steps
+# Project 2: Insuraforce
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Core Declarative Requirements
 
-## How Do You Plan to Deploy Your Changes?
+### Data Model
+  * `All` Create ERD 
+  
+### Security
+  * `All` Org level security for at least two distinct profiles 
+  * `All` Object level security for at least three distinct user types 
+  * `All` Record-level security & access should be configured for the organization 
+  * `All` Field-level security 
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+### Declarative UI
+  * `Rama` `Kevin` One custom app with a custom home page (Insuraforce) 
+  * `Kevin` Custom and standard objects should have configured layouts 
 
-## Configure Your Salesforce DX Project
+### Process Automation
+  * `Rachel` Screen Flow 
+    - An order screen flow placed on the Account records detail page that allows one to create multiple orders
+  * `Jonathan` Before-save Flow 
+    - When an Opportunity record is created, change stage to prospecting
+  * `Kevin` After-save Flow 
+    - Create an order from an opportunity
+    - Create a policy from an order
+  * `Not Assigned` Autolaunched Flow 
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### Reports & Dashboards
+  * `Andy` At least one standard and one custom report
 
-## Read All About It
+## Core Programmatic Requirements
+  
+### Apex Testing
+  * Ensure that Apex code has adequate test coverage and follow testing best practices both individually and as a team
+    - [ ] Andy
+    - [ ] Jonathan
+    - [ ] Kevin
+    - [ ] Rachel
+    - [ ] Rama
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+### Apex Triggers
+  * `Not Assigned` Accounts can't have more than one health insurance policy. Trying to add more than one health insurance product should trigger an error 
+  * `Rachel` Relate a Contact to an Account if the contact has the same phone number as the Account 
+  * `Not Assigned` Prevent deletion of Accounts that have an active policy 
+  * `Jonathan` Set Order Status to Deactivated if the Policy Status is set to Not Active 
+  * MISSING
+  
+### Platform Events
+  * Create a platform event
+  * Apex code or flow that fires above platform event
+  * An Apex Trigger or Platform-Event Triggered Flow that is invoked by the reception of the above Platform Event.
+
+### Visualforce
+  * A Visualforce page relevant to the business use case
+    - [ ] Andy
+    - [ ] Jonathan
+    - [ ] Kevin
+    - [ ] Rachel
+    - [ ] Rama
+  * Associated custom Apex code (either through a Custom Controller or Controller Extension)
+    - [ ] Andy
+    - [ ] Jonathan
+    - [ ] Kevin
+    - [ ] Rachel
+    - [ ] Rama
+
+## Peripheral Requirements
+
+### Sales Cloud
+  * `Rama` Lead assignment rules
+  * `Not Assigned` Lead auto-response rules
+  * `Not Assigned` Web-to-lead
+  * `Not Assigned` Opportunity path with a celebratory effect upon completion
+
+### Service Cloud
+  * `Not Assigned` Case assignment rules
+  * `Not Assigned` Case auto-response rules
+  * `Not Assigned` Web-to-case
+  * `Not Assigned` Case path
+
+### Process Automation
+  * Workflow rule
+  * Process configured through Process Builder
+  * `Jonathan` Multi-step approval process
+  * `Kevin` Schedule-triggered flow
+  * Platform-event-triggered flow
+
+### Experience Cloud
+  * `All` Create a customer-facing Experience Cloud site
+  
+### Lightning Web Components
+  * `All` Create multiple Lightning web components surfaced either internally or on the customer-facing Experience site
