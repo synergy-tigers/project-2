@@ -26,7 +26,7 @@
   * `Not Assigned` Autolaunched Flow 
 
 ### Reports & Dashboards
-  * At least one standard and one custom report ![Andy](https://img.shields.io/badge/-Andy-yellow)
+  * `Andy` At least one standard and one custom report
 
 ## Core Programmatic Requirements
   
