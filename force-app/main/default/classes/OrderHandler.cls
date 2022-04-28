@@ -13,7 +13,7 @@ public class OrderHandler {
         List<Policy__c> polWithHealth = [SELECT Policy_Owner1__r.Id FROM Policy__c WHERE ProductP__c = 'N665'];
         Set<Id> contactIdsWH = new Set<Id>();
         for (Policy__c CurrentPolicy : polWithHealth){
-            contactIdsWH.add(CurrentPolicy.Id);
+            contactIdsWH.add(CurrentPolicy.Policy_Owner1__c);
         }
         for (Id CurrConId : ConIds){
             if (contactIdsWH.contains(CurrConId)){
