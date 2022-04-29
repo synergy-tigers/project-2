@@ -23,7 +23,7 @@
   * `Kevin` After-save Flow 
     - Create an order from an opportunity
     - Create a policy from an order
-  * `Not Assigned` Autolaunched Flow 
+  * `Rama` Autolaunched Flow 
 
 ### Reports & Dashboards
   * `Andy` At least one standard and one custom report
@@ -39,11 +39,11 @@
     - [ ] Rama
 
 ### Apex Triggers
-  * `Not Assigned` Accounts can't have more than one health insurance policy. Trying to add more than one health insurance product should trigger an error 
+  * `Kevin` Accounts can't have more than one health insurance policy. Trying to add more than one health insurance product should trigger an error 
   * `Rachel` Relate a Contact to an Account if the contact has the same phone number as the Account 
-  * `Not Assigned` Prevent deletion of Accounts that have an active policy 
+  * `Rama` Prevent deletion of Accounts that have an active policy 
   * `Jonathan` Set Order Status to Deactivated if the Policy Status is set to Not Active 
-  * MISSING
+  * `Andy` Create related product order when order is created.
   
 ### Platform Events
   * Create a platform event
