@@ -4,9 +4,13 @@
         <members>*</members>
         <name>ApexClass</name>
     </types>
-     <types>
+    <types>
         <members>*</members>
         <name>AssignmentRules</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Queue</name>
     </types>
     
     <types>

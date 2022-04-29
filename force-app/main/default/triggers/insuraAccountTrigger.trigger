@@ -3,7 +3,7 @@ trigger insuraAccountTrigger on Account (before delete) {
     for(Account acc: Trigger.old){    
        AccountId.add(acc.ID);
     }
-    List<Policy__c> policyDet = [SELECT Account__c FROM Policy__c WHERE Account__c IN :AccountId];
+    List<Policy__c> policyDet = [SELECT Account__c FROM Policy__c WHERE Account__c IN :AccountId and Policy_Status__c = 'Active'];
     
     //checking policy
     //
@@ -15,7 +15,7 @@ trigger insuraAccountTrigger on Account (before delete) {
     
     for(Account AccDet: Trigger.old){
         if(PolicyaccId.contains(AccDet.Id))
-           AccDet.addError('Account has active policy');        
+           AccDet.addError('Account has an Active policy');        
     }
         
 }
