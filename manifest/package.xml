@@ -6,6 +6,15 @@
     </types>
     <types>
         <members>*</members>
+        <name>AssignmentRules</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Queue</name>
+    </types>
+    
+    <types>
+        <members>*</members>
         <name>CustomApplication</name>
     </types>
     <types>
