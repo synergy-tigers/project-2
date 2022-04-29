@@ -19,6 +19,8 @@ public class OrderHandler {
             contactIdsWH.add(CurrentPolicy.Policy_Owner1__c);
         }
 
+        contactIdsWH.remove(null);
+
         for (Id CurrConId : ConIds){
             if (contactIdsWH.contains(CurrConId)){
 //                System.debug('Flagged contact ID: ' + CurrConId);
