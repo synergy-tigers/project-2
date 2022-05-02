@@ -50,6 +50,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Order__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Policy_Cost__c</field>
             <value>
                 <elementReference>$Record.Order_Cost__c</elementReference>
