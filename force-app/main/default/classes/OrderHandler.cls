@@ -38,7 +38,7 @@ public class OrderHandler {
         }
 
         for(Order currOrder : orderSet){
-            if (!(Approval.isLocked(currOrder.Id)) ){
+            if (!(Approval.isLocked(currOrder.Id)) && currOrder.Order_Cost__c > 20000){
                 if(currOrder.Status != 'Deactivated' && currOrder.Approval_Status__c != null){
                     currOrder.addError('Please send order for approval to change status');
                 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>false</active>
+    <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
         <type>creator</type>
@@ -24,6 +24,18 @@
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Product_Review_Team</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>Product Team Review</label>
+        <name>Product_Team_Review</name>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
         <approvalActions>
             <action>
                 <name>Change_Approval_Status</name>
@@ -43,6 +55,9 @@
         </assignedApprover>
         <label>Order Approval Team</label>
         <name>Order_Approval_Team</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
         <rejectionActions>
             <action>
                 <name>Change_Approval_Status_to_Rejected</name>
@@ -75,7 +90,7 @@
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
-    <label>Order Review Process</label>
+    <label>Order Review Process2</label>
     <nextAutomatedApprover>
         <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>
         <userHierarchyField>Manager</userHierarchyField>
