@@ -162,7 +162,13 @@
     </nameField>
     <pluralLabel>Policies</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Order__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductP__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Policy_Quantity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Policy_Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
