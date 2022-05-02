@@ -22,6 +22,11 @@
         <name>CustomApplication</name>
     </types>
     <types>
+        <members>unfiled$public/Order_Review_Email</members>
+        <members>unfiled$public/Product_Review_Email</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
         <members>*</members>
         <name>ApexComponent</name>
     </types>

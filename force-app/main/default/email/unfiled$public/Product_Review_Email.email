@@ -1,0 +1,9 @@
+Hello there, 
+
+There is a order that needs to be approved!
+Order Cost: {!Order.Order_Cost__c}
+Order Quantity: {!Order.Order_Quantity__c}
+Product Interest: {!Order.Product_InterestOrder__c}
+
+To approve or reject this order please respond to this email with 'approve' or 'reject' or click the link bellow to approve within Salesforce.
+{!ApprovalRequest.External_URL}
