@@ -42,8 +42,11 @@
   * `Kevin` Accounts can't have more than one health insurance policy. Trying to add more than one health insurance product should trigger an error 
   * `Rachel` Relate a Contact to an Account if the contact has the same phone number as the Account 
   * `Rama` Prevent deletion of Accounts that have an active policy 
-  * `Jonathan` Set Order Status to Deactivated if the Policy Status is set to Not Active 
-  * `Andy` Create related product order when order is created.
+  * `Jonathan`
+    - After insert trigger on Order to automatically add product to order
+    - Before insert trigger to set standard price book
+    - Before update trigger to check for approval status.
+  * `Andy` Prevent creation of an account if an already-existing account has the same phone number.
   
 ### Platform Events
   * Create a platform event
@@ -80,7 +83,8 @@
 
 ### Process Automation
   * Workflow rule
-  * Process configured through Process Builder
+  * `Jonathan` Process configured through Process Builder
+    - Set Order Status to Deactivated if the Policy Status is set to Not Active
   * `Jonathan` Multi-step approval process
   * `Kevin` Schedule-triggered flow
   * Platform-event-triggered flow
