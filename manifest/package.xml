@@ -83,11 +83,13 @@
         <name>PermissionSet</name>
     </types>
     <types>
-        <members>*</members>
+        <members>unfiled$public/Accounts_with_Policies_Report_esM</members>
+        <members>unfiled$public/Standard_Account_Report_Z30</members>
         <name>Report</name>
     </types>
     <types>
-        <members>*</members>
+        <members>PublicDashboards</members>
+        <members>PublicDashboards/iUmBaimELnoJYHIDEqPSZsulzprrSC</members>
         <name>Dashboard</name>
     </types>
     <types>
