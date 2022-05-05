@@ -2,7 +2,7 @@ public class DataFactory {
     public static List<Contact> generateContacts(Integer numContacts){
         List<Contact> ConsForTest = new List<Contact>();
         for (Integer i = 0; i < numContacts; i++){
-            Contact newContact = new Contact(LastName = 'TestName' + i, Phone = '111222333' + i);
+            Contact newContact = new Contact(LastName = 'TestName' + i, Phone = '1112223333');
             ConsForTest.add(newContact);
         }
         return ConsForTest;
