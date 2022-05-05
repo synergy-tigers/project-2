@@ -19,6 +19,22 @@ public with sharing class AccountHandler {
     }
 
     public static void PreventDuplicatePhone(List<Account> Accounts) {
-        
+        Set<String> setPhone = new Set<String>();
+        for (Account acc: Accounts) {
+            setPhone.add(acc.Phone);
+        }
+        if(setPhone.size() > 0) {
+            List<Account> lstAccount = [SELECT Phone, id FROM Account WHERE Phone in :setPhone];
+            Map<String, Account> mapPhoneVsAccount = new Map<String, Account>();
+            For(Account acc: lstAccount) {
+                mapPhoneVsAccount.put(acc.Phone, acc);
+            }
+
+            For(Account acc: Accounts) {
+                if(mapPhoneVsAccount.containsKey(acc.Phone)) {
+                    acc.addError('Duplicate! Phone exists already!');
+                }
+            }
+        }
     }
 }
