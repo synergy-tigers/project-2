@@ -2,7 +2,7 @@
 <DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
     <folderShares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>test-c5jxdphdolui@example.com</sharedTo>
+        <sharedTo>test-mo2kfrd7iaoc@example.com</sharedTo>
         <sharedToType>User</sharedToType>
     </folderShares>
     <name>Public Dashboards</name>
