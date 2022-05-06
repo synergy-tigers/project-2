@@ -6,7 +6,7 @@
 trigger OrderTrigger on Order (before insert, before update, after insert) {
     switch on trigger.Operationtype{
         when BEFORE_INSERT{
-            //OrderHandler.SetStandardPriceBook(trigger.new);
+            OrderHandler.SetStandardPriceBook(trigger.new);
             OrderHandler.HandleHealthIns(trigger.new);
             
         }

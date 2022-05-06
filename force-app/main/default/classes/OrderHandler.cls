@@ -37,7 +37,7 @@ public class OrderHandler {
         }
     }
 
-/*    public static void CheckApprovalStatus(List<Order> newOrders){
+	public static void CheckApprovalStatus(List<Order> newOrders){
         Set<Order> orderSet = new Set<Order>();
         for(Order currOrder: newOrders){
             orderSet.add(currOrder);
@@ -90,5 +90,5 @@ public class OrderHandler {
         
         return newProd;
     }
-*/
+    
 }
