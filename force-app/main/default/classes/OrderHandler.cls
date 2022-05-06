@@ -55,9 +55,12 @@ public class OrderHandler {
     public static void SetStandardPriceBook(List<Order> newOrder){
         
         List<Pricebook2> standardPriceBookId = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book' limit 1];
+        System.debug('order size is: ' + newOrder.size() + '|List size is: ' + standardPriceBookId.size());
         for(Order currOrder : newOrder){
+            System.debug(currOrder.AccountId + '' + standardPriceBookId[0].Id);
             currOrder.Pricebook2Id = standardPriceBookId[0].Id;
         }
+		
     }
 
     public static void AddProductToOrder(List<Order> modOrders){

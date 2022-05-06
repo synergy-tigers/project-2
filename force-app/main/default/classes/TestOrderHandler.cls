@@ -2,6 +2,47 @@
 public class TestOrderHandler {
 
     @TestSetup static void setupOrders() {
+        
+        //create price book
+        PriceBook2 standardPriceBook = new PriceBook2(
+            Id=Test.getStandardPricebookId(),
+        	IsActive=true);
+        update standardPriceBook;
+        
+        // Insert Products
+        List<Product2> products = new List<Product2>();
+        Product2 insurance = new  Product2();
+        insurance.Name='Insurance';
+        insurance.ProductCode = '19f';
+        insurance.isActive=true;
+        products.add(insurance);
+        
+        Product2 health = new  Product2();
+        health.Name='Health';
+        health.ProductCode = 'N665';
+        health.isActive=true;
+        products.add(health);
+        
+        insert products;
+        
+        //create price book entries
+        Id pricebookId = standardPriceBook.Id;
+        System.debug(pricebookId);
+        
+        List<PricebookEntry> standardPriceEntries = new List<PricebookEntry>();
+        
+        PricebookEntry standardPriceHealth = new PricebookEntry(
+           	Pricebook2Id = pricebookId, Product2Id = Health.Id,
+            UnitPrice = 10000, IsActive = true);
+        standardPriceEntries.add(standardPriceHealth);
+        
+        PricebookEntry standardPriceInsurance = new PricebookEntry(
+           	Pricebook2Id = pricebookId, Product2Id = Insurance.Id,
+            UnitPrice = 10000, IsActive = true);
+        standardPriceEntries.add(standardPriceInsurance);
+        
+        insert standardPriceEntries;
+        
         //create accounts for tests
         List<Account> AccsForTest = new List<Account>();
         for(Integer i = 0; i < 3; i++){
@@ -9,6 +50,7 @@ public class TestOrderHandler {
             AccsForTest.add(newAccount);
         }
         Database.insert(AccsForTest);
+        
         //create contacts for tests 
         List<Contact> ConsForTest = Datafactory.generateContacts(3);
         insert ConsForTest;
@@ -38,8 +80,7 @@ public class TestOrderHandler {
     }
     
     @isTest static void TestOrderNoPrevPol() {
-
-        Test.startTest();
+        
         //use SOQL to get all neccisary order info that were made in test setup
         List<Account> AccsForTest = [SELECT Id From Account];
         List<Contact> ConsForTest = [SELECT LastName, Phone FROM Contact];
@@ -49,6 +90,7 @@ public class TestOrderHandler {
                                       Policy_Status__c,
                                       ProductP__c,
                                       Policy_Quantity__c FROM Policy__c];
+        
         List<Order> testOrders = new List<Order>();
 		testOrders.add(new Order(AccountId = AccsForTest[0].Id, 
                                 EffectiveDate = Date.newInstance(2022, 06, 01), 
@@ -72,21 +114,19 @@ public class TestOrderHandler {
                                 Status ='Draft',
                                 CustomerAuthorizedById = ConsForTest[2].Id));
         
+        Test.startTest();
         //attempt to save the orders created, if 1+2 save and 3 doesn't that is the desired effect
         Database.SaveResult[] srList;
         try { 
             srList = Database.insert(testOrders, false);
         }
         
-        catch(Exception e)
-            
-        {
+        catch(Exception e){
             
             Boolean expectedExceptionThrown =  e.getMessage().contains('This contact already has health insurance.') ? true : false;
-            
-            System.AssertEquals(expectedExceptionThrown, true);
-            
+            System.AssertEquals(expectedExceptionThrown, true);  
         } 
+        Test.stopTest();
         
         //itterate through the orders and if they will save or not  
         for(Database.SaveResult ord : srList){
@@ -101,7 +141,5 @@ public class TestOrderHandler {
                 }
             }
         }
-        
-        Test.stopTest();
     }
 }

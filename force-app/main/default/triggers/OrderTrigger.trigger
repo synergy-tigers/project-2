@@ -8,13 +8,12 @@ trigger OrderTrigger on Order (before insert, before update, after insert) {
         when BEFORE_INSERT{
             OrderHandler.SetStandardPriceBook(trigger.new);
             OrderHandler.HandleHealthIns(trigger.new);
-            
         }
         when BEFORE_UPDATE{
-            //OrderHandler.CheckApprovalStatus(trigger.new);
+            OrderHandler.CheckApprovalStatus(trigger.new);
         }
         when AFTER_INSERT{
-            //OrderHandler.AddProductToOrder(trigger.new);
+            OrderHandler.AddProductToOrder(trigger.new);
         }
     }
 }
