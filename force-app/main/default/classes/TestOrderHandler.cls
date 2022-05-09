@@ -3,7 +3,7 @@ public class TestOrderHandler {
 
     @TestSetup static void setupOrders() {
         
-        //create price book
+        //activate standard pricebook
         PriceBook2 standardPriceBook = new PriceBook2(
             Id=Test.getStandardPricebookId(),
         	IsActive=true);
@@ -44,12 +44,8 @@ public class TestOrderHandler {
         insert standardPriceEntries;
         
         //create accounts for tests
-        List<Account> AccsForTest = new List<Account>();
-        for(Integer i = 0; i < 3; i++){
-            Account newAccount = new Account(Name = 'Test' + i);
-            AccsForTest.add(newAccount);
-        }
-        Database.insert(AccsForTest);
+        List<Account> AccsForTest = Datafactory.generateAccounts(3);
+        insert(AccsForTest);
         
         //create contacts for tests 
         List<Contact> ConsForTest = Datafactory.generateContacts(3);
@@ -142,4 +138,65 @@ public class TestOrderHandler {
             }
         }
     }
+
+    @isTest static void TP_CheckApprovalStatus(){
+
+        List<Account> AccsForTest = [SELECT Id From Account];
+        List<Contact> ConsForTest = [SELECT LastName, Phone FROM Contact];
+        
+		Order testOrders = new Order(AccountId = AccsForTest[0].Id, 
+                                EffectiveDate = Date.newInstance(2022, 06, 01), 
+                                Product_InterestOrder__c ='N665', 
+                                Order_Quantity__c =1, 
+                                Order_Cost__c =20001, 
+                                Status ='Draft', 
+                                CustomerAuthorizedById = ConsForTest[0].Id);
+
+        Test.startTest();
+
+        try {
+            insert testOrders;
+            testOrders.Approval_Status__c = 'Approved';
+            update testOrders;
+        }
+        
+        catch(Exception e){
+            
+            Boolean expectedExceptionThrown =  e.getMessage().contains('Please send order for approval to change status') ? true : false;
+            System.AssertEquals(expectedExceptionThrown, true);  
+        } 
+
+        Test.stopTest();
+    }
+    
+    
+    @isTest static void TB_CheckApprovalStatus(){
+
+        List<Account> AccsForTest = [SELECT Id From Account];
+        List<Contact> ConsForTest = [SELECT LastName, Phone FROM Contact];
+        
+		List<Order> testOrders = DataFactory.generateOrders(AccsForTest[0], ConsForTest[0], 151);
+        Test.startTest();
+
+        try {
+            insert testOrders;
+            for(Integer i = 0; i < testOrders.size(); i++){
+           		testOrders[i].Approval_Status__c = 'Rejected';
+            }
+            update testOrders;
+        }
+        
+        catch(Exception e){
+            
+            Boolean expectedExceptionThrown =  e.getMessage().contains('Please send order for approval to change status') ? true : false;
+            System.debug('exception thrown: ' + expectedExceptionThrown + ': ' + e.getMessage());
+            System.AssertEquals(expectedExceptionThrown, true);  
+        } 
+
+        Test.stopTest();
+    }
+    
+    
+
+    
 }

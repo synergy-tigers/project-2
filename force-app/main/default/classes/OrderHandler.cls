@@ -6,6 +6,10 @@
 
 public class OrderHandler {
     
+    private static final List<PricebookEntry> prods = [SELECT Product2Id, ProductCode, Id 
+                                                       FROM PricebookEntry 
+                                                       WHERE Name != null];
+    
     public static void HandleHealthIns(List<Order> NewOrders){
         Set<Id> ConIds = new Set<Id>();
         Map<Id, Order> ConOrderMap = new Map<Id, Order>(); 
@@ -77,9 +81,7 @@ public class OrderHandler {
     //only works if there is a matching product from order
     public static OrderItem createOrderProduct(Order currOrder){
         OrderItem newProd = new OrderItem();
-
-        List<PricebookEntry> prods = [SELECT Product2Id, ProductCode, Id FROM PricebookEntry WHERE Name != null];
-
+        
         for(Integer i = 0; i < prods.size(); i++){
             if(prods[i].ProductCode == currOrder.Product_InterestOrder__c){
                 newProd.Product2Id = prods[i].Product2Id;
