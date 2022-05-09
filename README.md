@@ -49,16 +49,16 @@
   * `Andy` Prevent creation of an account if an already-existing account has the same phone number.
   
 ### Platform Events
-  * Create a platform event
-  * Apex code or flow that fires above platform event
-  * An Apex Trigger or Platform-Event Triggered Flow that is invoked by the reception of the above Platform Event.
+  * `All` Create a platform event
+  * `All` Apex code or flow that fires above platform event
+  * `All` An Apex Trigger or Platform-Event Triggered Flow that is invoked by the reception of the above Platform Event.
 
 ### Visualforce
   * A Visualforce page relevant to the business use case
     - [ ] Andy
-    - [ ] Jonathan
-    - [ ] Kevin
-    - [ ] Rachel
+    - [ ] `Jonathan` Policies
+    - [ ] `Kevin` Opportunities
+    - [ ] `Rachel` Cases
     - [ ] Rama
   * Associated custom Apex code (either through a Custom Controller or Controller Extension)
     - [ ] Andy
@@ -84,7 +84,6 @@
 ### Process Automation
   * Workflow rule
   * `Jonathan` Process configured through Process Builder
-    - Set Order Status to Deactivated if the Policy Status is set to Not Active
   * `Jonathan` Multi-step approval process
   * `Kevin` Schedule-triggered flow
   * Platform-event-triggered flow
