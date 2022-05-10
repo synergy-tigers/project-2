@@ -1,3 +1,9 @@
+/*
+    Created By: Kevin Neisser & Jonathan Thomas
+    Last Updated: 5/10/2022 
+    Description: Factory for order test class. Generates contacts, accounts and orders
+*/
+
 public class DataFactory {
     
     public static List<Contact> generateContacts(Integer numContacts){
@@ -24,7 +30,7 @@ public class DataFactory {
         for(Integer i = 0; i < numOrder; i++){
             Order newOrder = new Order(AccountId = acc.Id, 
                                 EffectiveDate = Date.newInstance(2022, 06, 01), 
-                                Product_InterestOrder__c ='N665', 
+                                Product_InterestOrder__c ='19F', 
                                 Order_Quantity__c =1, 
                                 Order_Cost__c =20001, 
                                 Status ='Draft', 
@@ -32,7 +38,6 @@ public class DataFactory {
             
             OrderForTest.add(newOrder);
         }
-        
         return OrderForTest;       
     }
 }

@@ -1,7 +1,7 @@
 /*
-    Created By: Kevin Neisser
-    Last Updated: 4/29/2022 
-    Description: Prevents the save of an order that has the same product type as an existing policy with the same policy owner
+    Created By: Kevin Neisser & Jonathan Thomas
+    Last Updated: 5/10/2022 
+    Description: Logicless Triger on order that has a before insert, after insert and before update
 */
 trigger OrderTrigger on Order (before insert, before update, after insert) {
     switch on trigger.Operationtype{
