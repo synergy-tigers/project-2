@@ -58,6 +58,7 @@
         <members>Order.Status</members>
         <members>Order.Social_Security_Number__c</members>
         <members>Order.Approval_Status__c</members>
+        <members>Case.Policy__c</members>
         <name>CustomField</name>
     </types>
     <types>
