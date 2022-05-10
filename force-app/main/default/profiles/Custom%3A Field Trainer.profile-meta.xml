@@ -80,10 +80,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CasePlusController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ContactFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -97,6 +93,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>OrderHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PolicyController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -523,7 +523,7 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>CasePlus</apexPage>
+        <apexPage>PoliciesPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
