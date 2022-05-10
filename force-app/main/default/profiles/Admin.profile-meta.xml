@@ -80,10 +80,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CasePlusController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ContactFactory</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -515,10 +511,6 @@
         <object>Policy__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <pageAccesses>
-        <apexPage>CasePlus</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
     <pageAccesses>
         <apexPage>UserPage</apexPage>
         <enabled>true</enabled>
