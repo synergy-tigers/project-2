@@ -86,7 +86,7 @@
   * `Jonathan` Process configured through Process Builder
   * `Jonathan` Multi-step approval process
   * `Kevin` Schedule-triggered flow
-  * Platform-event-triggered flow
+  * `All` Platform-event-triggered flow
 
 ### Experience Cloud
   * `All` Create a customer-facing Experience Cloud site
