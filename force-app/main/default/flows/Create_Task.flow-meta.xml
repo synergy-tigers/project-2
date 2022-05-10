@@ -1,26 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>Create_Policy_Task</name>
-        <label>Create Policy Task</label>
-        <locationX>176</locationX>
-        <locationY>434</locationY>
-        <actionName>FeedItem.NewTaskFromFeedItem</actionName>
-        <actionType>quickAction</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>contextId</name>
-            <value>
-                <elementReference>Get_Policy.Id</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>Subject</name>
-            <value>
-                <stringValue>Case {!Get_Case.CaseNumber}</stringValue>
-            </value>
-        </inputParameters>
-    </actionCalls>
     <apiVersion>54.0</apiVersion>
     <interviewLabel>Create Task {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Task</label>
@@ -43,6 +22,32 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Task_for_Case</name>
+        <label>Create Task for Case</label>
+        <locationX>176</locationX>
+        <locationY>434</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>TaskSubject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>Get_Policy.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <recordLookups>
         <name>Get_Case</name>
         <label>Get Case</label>
@@ -50,7 +55,7 @@
         <locationY>314</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Create_Policy_Task</targetReference>
+            <targetReference>Create_Task_for_Case</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -95,4 +100,9 @@
         <triggerType>PlatformEvent</triggerType>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>TaskSubject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Case {!Get_Case.Id}</text>
+    </textTemplates>
 </Flow>
