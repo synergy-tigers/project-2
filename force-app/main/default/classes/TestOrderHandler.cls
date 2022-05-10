@@ -319,5 +319,4 @@ public class TestOrderHandler {
             System.assertNotEquals(insertedOrderSet.contains(orderItem[i].OrderId), null);
         }
     }
-    
 }
