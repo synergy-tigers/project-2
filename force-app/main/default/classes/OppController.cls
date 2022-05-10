@@ -1,4 +1,15 @@
-public class OppController {  
+public class OppController {
+    public Boolean ShowProspect {get {
+        if (ShowProspect == null) {
+            ShowProspect = true;
+        }
+        return ShowProspect;
+    } set;} 
+
+    public void ToggleShowProspect() {
+        ShowProspect = ShowProspect;
+    }
+
     public List<Opportunity> getProsp(){
         List<Opportunity> prospects = [SELECT Name, Id, Account.Name, Product_InterestO__c, StageName, CloseDate, Owner.Name FROM Opportunity WHERE StageName = 'Prospecting'];
         return prospects;
@@ -39,7 +50,4 @@ public class OppController {
         List<Opportunity> los = [SELECT Name, Id, Account.Name, Product_InterestO__c, StageName, CloseDate, Owner.Name FROM Opportunity WHERE StageName = 'Closed Lost'];
         return los;
     }
-    
-    
-    public Boolean IsProspect {get; set;}
 }

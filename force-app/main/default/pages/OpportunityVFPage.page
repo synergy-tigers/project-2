@@ -1,11 +1,12 @@
 <apex:page controller="OppController" >
     <apex:form >
         <div style="float:middle;">           
-       		<apex:inputCheckbox id="Prospecting" value="{!IsProspect}" selected="true"  >
+       		<apex:inputCheckbox id="Prospecting" value="{!ShowProspect}">
+                   <apex:actionSupport event="onchange" action="{!ToggleShowProspect}"/>
         	</apex:inputCheckbox>
         </div>
         <apex:outputPanel >
-            <apex:pageBlock id="pageBlock" rendered="{!IsProspect}" >
+            <apex:pageBlock id="pageBlock" rendered="{!ShowProspect}" >
                 <apex:pageBlockTable value="{!Prosp}" var="pr">
                     <apex:column value="{!pr.Name}" />
                     <apex:column value="{!pr.Account.Name}" />
