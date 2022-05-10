@@ -1,0 +1,30 @@
+<apex:page controller="OppController" >
+    <apex:form >
+        <div style="float:middle;">           
+       		<apex:inputCheckbox id="Prospecting" value="{!IsProspect}" selected="true"  >
+        	</apex:inputCheckbox>
+        </div>
+        <apex:outputPanel >
+            <apex:pageBlock id="pageBlock" rendered="{!IsProspect}" >
+                <apex:pageBlockTable value="{!Prosp}" var="pr">
+                    <apex:column value="{!pr.Name}" />
+                    <apex:column value="{!pr.Account.Name}" />
+                    <apex:column value="{!pr.Product_InterestO__c}" />
+                    <apex:column value="{!pr.CloseDate}" />
+                    <apex:column value="{!pr.StageName}" />
+                    <apex:column value="{!pr.Owner.Name}" />
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <div>
+            
+        </div>
+          
+    </apex:form>
+
+<!--
+display the user's name at the top of page with {! $User.FirstName & ' ' & $User.LastName }
+display the date with <p> Today's Date is {! TODAY() } </p>
+https://www.forcetalks.com/salesforce-topic/in-salesforce-how-to-display-dynamic-table-records-in-horizontal-format/
+-->
+</apex:page>
