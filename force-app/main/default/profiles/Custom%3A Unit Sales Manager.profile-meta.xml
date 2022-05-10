@@ -96,10 +96,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PolicyController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TestLinkContactToAccount</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -522,10 +518,6 @@
         <object>Policy__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <pageAccesses>
-        <apexPage>PoliciesPage</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
     <pageAccesses>
         <apexPage>UserPage</apexPage>
         <enabled>false</enabled>
