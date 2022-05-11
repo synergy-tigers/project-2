@@ -1,31 +1,157 @@
-<apex:page controller="OppController" >
+<apex:page controller="OppController" pageStyle="background-color:#87FCDC;font-weight: bold;" >
     <apex:form >
-        <div style="float:middle;">           
-       		<apex:inputCheckbox id="Prospecting" value="{!ShowProspect}">
-                   <apex:actionSupport event="onchange" action="{!ToggleShowProspect}"/>
-        	</apex:inputCheckbox>
-        </div>
-        <apex:outputPanel >
-            <apex:pageBlock id="pageBlock" rendered="{!ShowProspect}" >
-                <apex:pageBlockTable value="{!Prosp}" var="pr">
-                    <apex:column value="{!pr.Name}" />
-                    <apex:column value="{!pr.Account.Name}" />
-                    <apex:column value="{!pr.Product_InterestO__c}" />
-                    <apex:column value="{!pr.CloseDate}" />
-                    <apex:column value="{!pr.StageName}" />
-                    <apex:column value="{!pr.Owner.Name}" />
-                </apex:pageBlockTable>
+    	<div style="background-color: #76BFD5;" >
+        	<apex:sectionHeader subtitle="All Opportunities By Stage For: {! $User.FirstName & ' ' & $User.LastName }"/>
+        	<apex:pageBlock title="Prospecting Stage" id="pageBlockProspect">
+                <apex:inputCheckbox id="Prospecting" value="{!ShowProspect}" >
+                    <apex:actionSupport event="onchange" action="{!ToggleShowProspect}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Prosp}" var="p" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowProspect}">
+                        <apex:column value="{!p.Name}" />
+                        <apex:column value="{!p.Account.Name}" />
+                        <apex:column value="{!p.Product_InterestO__c}" />
+                        <apex:column value="{!p.CloseDate}" />
+                        <apex:column value="{!p.StageName}" />
+                        <apex:column value="{!p.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
             </apex:pageBlock>
-        </apex:outputPanel>
-        <div>
-            
-        </div>
-          
-    </apex:form>
-
-<!--
-display the user's name at the top of page with {! $User.FirstName & ' ' & $User.LastName }
-display the date with <p> Today's Date is {! TODAY() } </p>
-https://www.forcetalks.com/salesforce-topic/in-salesforce-how-to-display-dynamic-table-records-in-horizontal-format/
--->
+            <apex:pageBlock title="Qualification Stage" id="pageBlockQualification">
+                <apex:inputCheckbox id="Qualification" value="{!ShowQual}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowQual}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Qual}" var="q" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowQual}">
+                        <apex:column value="{!q.Name}" />
+                        <apex:column value="{!q.Account.Name}" />
+                        <apex:column value="{!q.Product_InterestO__c}" />
+                        <apex:column value="{!q.CloseDate}" />
+                        <apex:column value="{!q.StageName}" />
+                        <apex:column value="{!q.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Needs Analysis Stage" id="pageBlockNeeds">
+                <apex:inputCheckbox id="NeedsAnalysis" value="{!ShowNeeds}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowNeeds}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Needs}" var="n" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowNeeds}">
+                        <apex:column value="{!n.Name}" />
+                        <apex:column value="{!n.Account.Name}" />
+                        <apex:column value="{!n.Product_InterestO__c}" />
+                        <apex:column value="{!n.CloseDate}" />
+                        <apex:column value="{!n.StageName}" />
+                        <apex:column value="{!n.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Value Proposistion Stage" id="pageBlockProposition">
+                <apex:inputCheckbox id="ValueProposition" value="{!ShowValue}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowValue}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Value}" var="v" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowValue}">
+                        <apex:column value="{!v.Name}" />
+                        <apex:column value="{!v.Account.Name}" />
+                        <apex:column value="{!v.Product_InterestO__c}" />
+                        <apex:column value="{!v.CloseDate}" />
+                        <apex:column value="{!v.StageName}" />
+                        <apex:column value="{!v.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Id. Decision Makers Stage" id="pageBlockDec">
+                <apex:inputCheckbox id="IdDecisionMakers" value="{!ShowDec}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowDec}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Dec}" var="d" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowDec}">
+                        <apex:column value="{!d.Name}" />
+                        <apex:column value="{!d.Account.Name}" />
+                        <apex:column value="{!d.Product_InterestO__c}" />
+                        <apex:column value="{!d.CloseDate}" />
+                        <apex:column value="{!d.StageName}" />
+                        <apex:column value="{!d.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Perception Analysis Stage" id="pageBlockPerc">
+                <apex:inputCheckbox id="PerceptionAnalysis" value="{!ShowPerc}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowPerc}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Perc}" var="per" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowPerc}">
+                        <apex:column value="{!per.Name}" />
+                        <apex:column value="{!per.Account.Name}" />
+                        <apex:column value="{!per.Product_InterestO__c}" />
+                        <apex:column value="{!per.CloseDate}" />
+                        <apex:column value="{!per.StageName}" />
+                        <apex:column value="{!per.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Proposal/Price Quote Stage" id="pageBlockProp">
+                <apex:inputCheckbox id="ProposalPriceQuote" value="{!ShowProp}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowProp}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Prop}" var="pro" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowProp}">
+                        <apex:column value="{!pro.Name}" />
+                        <apex:column value="{!pro.Account.Name}" />
+                        <apex:column value="{!pro.Product_InterestO__c}" />
+                        <apex:column value="{!pro.CloseDate}" />
+                        <apex:column value="{!pro.StageName}" />
+                        <apex:column value="{!pro.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Negotiation/Review Stage" id="pageBlockNeg">
+                <apex:inputCheckbox id="NegotiationReview" value="{!ShowNeg}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowNeg}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!Neg}" var="n" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowNeg}">
+                        <apex:column value="{!n.Name}" />
+                        <apex:column value="{!n.Account.Name}" />
+                        <apex:column value="{!n.Product_InterestO__c}" />
+                        <apex:column value="{!n.CloseDate}" />
+                        <apex:column value="{!n.StageName}" />
+                        <apex:column value="{!n.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Closed Won" id="pageBlockCWon">
+                <apex:inputCheckbox id="ClosedWon" value="{!ShowCWon}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowCwon}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!CWon}" var="CW" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowCWon}">
+                        <apex:column value="{!CW.Name}" />
+                        <apex:column value="{!CW.Account.Name}" />
+                        <apex:column value="{!CW.Product_InterestO__c}" />
+                        <apex:column value="{!CW.CloseDate}" />
+                        <apex:column value="{!CW.StageName}" />
+                        <apex:column value="{!CW.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="Closed Lost" id="pageBlockCLos">
+                <apex:inputCheckbox id="ClosedLost" value="{!ShowCLos}">
+                    <apex:actionSupport event="onchange" action="{!ToggleShowCLos}"/>
+                </apex:inputCheckbox>
+                <apex:outputPanel >
+                    <apex:pageBlockTable value="{!CLos}" var="CL" style="background-color:#D2F5FF;font-weight: bold;" rendered="{!ShowCLos}">
+                        <apex:column value="{!CL.Name}" />
+                        <apex:column value="{!CL.Account.Name}" />
+                        <apex:column value="{!CL.Product_InterestO__c}" />
+                        <apex:column value="{!CL.CloseDate}" />
+                        <apex:column value="{!CL.StageName}" />
+                        <apex:column value="{!CL.Owner.Name}" />
+                    </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+    	</div>
+	</apex:form>
 </apex:page>
