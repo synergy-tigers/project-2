@@ -1,3 +1,0 @@
-<apex:page standardController="Account">
-    Hello {!Account.Name}
-</apex:page>
