@@ -71,6 +71,7 @@
     <tabs>standard-Pricebook2</tabs>
     <tabs>standard-Product2</tabs>
     <tabs>standard-report</tabs>
+    <tabs>Case_Overview</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Insuraforce_UtilityBar</utilityBar>
 </CustomApplication>
