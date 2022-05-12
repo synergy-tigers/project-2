@@ -3,7 +3,7 @@
         <apex:slds />
     </head>
     <body class="slds-scope">
-        <apex:form>
+        <apex:form >
             <apex:outputPanel id="control-grid">
                 <!-- filters -->
             </apex:outputPanel>
@@ -43,7 +43,7 @@
                         <apex:outputLabel value="Status" for="case-status" styleClass="field-lbl" />
                         <apex:outputText value="{!fcp.wrappedCase.Status}" id="case-status" styleClass="field-val" />
                         <br />
-                        <apex:outputPanel id='policy-panel' rendered="{!(fcp.wrappedPolicy != null)}">
+                        <apex:outputPanel id="policy-panel" rendered="{!(fcp.wrappedPolicy != null)}">
                             <apex:outputLabel value="Policy Number" for="pol-num" />
                             <apex:commandLink action="{!fcp.toggleExpansion}" value="{!fcp.wrappedPolicy.Name}" id="policy-name" reRender="case-grid">
                                 <apex:param name="option" value="Policy" />
