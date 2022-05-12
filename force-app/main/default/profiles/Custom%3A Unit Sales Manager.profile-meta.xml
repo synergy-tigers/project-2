@@ -80,6 +80,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CasePlusController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -89,6 +93,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DataFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OppController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -519,7 +527,11 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>UserPage</apexPage>
+        <apexPage>CasePlus</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>OpportunityVFPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
@@ -532,6 +544,10 @@
         <recordType>Policy__c.Life_Insurance</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Case_Overview</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Policy__c</tab>
         <visibility>DefaultOn</visibility>
