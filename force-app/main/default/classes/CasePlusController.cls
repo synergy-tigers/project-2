@@ -155,8 +155,8 @@ public with sharing class CasePlusController {
                 pFilterValues.put('Contact Name', wrappedContact.Name);
             }
             if (wrappedPolicy != null) {
-                pFilterValues.put('Policy Number', wrappedPolicy.Number);
-                pFilterValues.put('Policy Product', wrappedPolicy.Product);
+                pFilterValues.put('Policy Number', wrappedPolicy.Name);
+                pFilterValues.put('Policy Product', wrappedPolicy.ProductP__c);
             }
         }
     }
