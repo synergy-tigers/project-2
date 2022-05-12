@@ -36,7 +36,6 @@
     - [ ] Jonathan
     - [ ] Kevin
     - [ ] Rachel
-    - [ ] Rama
 
 ### Apex Triggers
   * `Kevin` Accounts can't have more than one health insurance policy. Trying to add more than one health insurance product should trigger an error 
@@ -57,14 +56,13 @@
   * A Visualforce page relevant to the business use case
     - [ ] Andy
     - [ ] `Jonathan` Policies
-    - [ ] `Kevin` Opportunities
-    - [ ] `Rachel` Cases
-    - [ ] Rama
+    - [X] `Kevin` Opportunities
+    - [X] `Rachel` Cases
   * Associated custom Apex code (either through a Custom Controller or Controller Extension)
     - [ ] Andy
     - [ ] Jonathan
-    - [ ] Kevin
-    - [ ] Rachel
+    - [X] Kevin
+    - [X] Rachel
     - [ ] Rama
 
 ## Peripheral Requirements
