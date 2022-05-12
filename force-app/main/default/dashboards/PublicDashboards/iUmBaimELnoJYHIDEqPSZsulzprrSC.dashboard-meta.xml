@@ -98,9 +98,9 @@
         <numberOfColumns>12</numberOfColumns>
         <rowHeight>36</rowHeight>
     </dashboardGridLayout>
-    <dashboardType>LoggedInUser</dashboardType>
+    <dashboardType>SpecifiedUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <runningUser>test-vkx0y8vmscjh@example.com</runningUser>
+    <runningUser>test-c5jxdphdolui@example.com</runningUser>
     <textColor>#000000</textColor>
     <title>Insuraforce Dashboard</title>
     <titleColor>#000000</titleColor>
