@@ -7,4 +7,6 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <tabs>standard-AppLauncher</tabs>
     <tabs>Policy__c</tabs>
+    <tabs>VF_Opportunity</tabs>
+    <tabs>Case_Overview</tabs>
 </CustomApplication>

@@ -61,16 +61,17 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+    <setupExperience>all</setupExperience>
     <tabs>standard-home</tabs>
-    <tabs>standard-Account</tabs>
-    <tabs>standard-Campaign</tabs>
-    <tabs>standard-Feed</tabs>
-    <tabs>standard-Contact</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>standard-Opportunity</tabs>
-    <tabs>standard-Pricebook2</tabs>
-    <tabs>standard-Product2</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Order</tabs>
+    <tabs>Policy__c</tabs>
     <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>VF_Opportunity</tabs>
     <tabs>Case_Overview</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Insuraforce_UtilityBar</utilityBar>

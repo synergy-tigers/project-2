@@ -53,7 +53,7 @@
             <label>Status?</label>
         </rules>
     </decisions>
-    <interviewLabel>ChangePolicyStatus-4_InterviewLabel</interviewLabel>
+    <interviewLabel>ChangePolicyStatus-3_InterviewLabel</interviewLabel>
     <label>ChangePolicyStatus</label>
     <processMetadataValues>
         <name>ObjectType</name>

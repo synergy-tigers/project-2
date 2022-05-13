@@ -11,4 +11,6 @@
     <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-File</tabs>
     <tabs>Policy__c</tabs>
+    <tabs>VF_Opportunity</tabs>
+    <tabs>Case_Overview</tabs>
 </CustomApplication>
