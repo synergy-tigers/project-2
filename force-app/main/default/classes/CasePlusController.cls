@@ -126,7 +126,7 @@ public with sharing class CasePlusController {
                 }
                 else if (option == 'Account') {
                     showPolicyInfo = false;
-                    showContactInfo = true;
+                    showContactInfo = false;
                     showAccountInfo = true;
                 }
                 else {
