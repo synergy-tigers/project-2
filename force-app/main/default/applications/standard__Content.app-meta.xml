@@ -10,4 +10,6 @@
     <tabs>standard-ContentSearch</tabs>
     <tabs>standard-ContentSubscriptions</tabs>
     <tabs>Policy__c</tabs>
+    <tabs>VF_Opportunity</tabs>
+    <tabs>Case_Overview</tabs>
 </CustomApplication>

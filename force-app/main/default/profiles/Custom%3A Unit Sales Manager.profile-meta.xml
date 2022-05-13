@@ -104,15 +104,22 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
         <apexClass>PolicyController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+=======
+>>>>>>> 77ad643ace758b077e48cb19a7544aa475ae34d9
         <apexClass>PreventDuplicatePhoneTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TestLinkContactToAccount</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestOppController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -451,9 +458,6 @@
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -570,6 +574,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Policy__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>VF_Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

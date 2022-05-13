@@ -1,3 +1,10 @@
+<!-- 
+    Created by: Kevin Neisser
+    Last Updated: 5/13/2022
+    Description: A visualforce page to display records accoring to their stage in the opportunity process.  
+    Different tables and checkboxes to be able to show and hide the data as required.
+-->
+
 <apex:page controller="OppController" pageStyle="background-color:#87FCDC;font-weight: bold;" >
     <apex:form >
     	<div style="background-color: #76BFD5;" >
