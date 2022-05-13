@@ -104,13 +104,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
         <apexClass>PolicyController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-=======
->>>>>>> 77ad643ace758b077e48cb19a7544aa475ae34d9
         <apexClass>PreventDuplicatePhoneTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
