@@ -1,23 +1,23 @@
-<apex:page controller="PolicyController">
-    <apex:slds />
+<apex:page controller="PolicyController" lightningStylesheets="true">
+    
+    <apex:form >
+        <apex:pageBlock >    
+            <apex:inputText value="{!filter}">
+                <apex:actionSupport event="onkeyup" action="{!FilterList}" reRender="table"/>
+            </apex:inputText>
 
-    <apex:form>
-
-        <apex:pageBlock>
-            <apex:pageBlockButtons>
-                <apex:commandLink action="{!NextPage}" value="Next Page" />
-            </apex:pageBlockButtons>
-
-            <apex:outputText value="Your Name: " />
-            <apex:inputText value="{!name}" />
-
-            <apex:outputText value="Your Special Number: " />
-            <apex:inputText value="{!specialNumber}" />
-
-            <apex:outputText value="Your Special Text: " />
-            <apex:inputText value="{!specialText}" />
-
+            <apex:pageBlock id="table">
+                <apex:pageBlockTable value="{!filteredList}" var="currPolicy">
+                    <apex:column >
+                        <apex:commandLink value="{!currPolicy.Name}" action="{!NextPage}">
+                            <apex:param name="polId" value="{!currPolicy.Id}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column value="{!currPolicy.Account__r.Name}"/>
+                    <apex:column value="{!currPolicy.ProductP__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
         </apex:pageBlock>
-
     </apex:form>
+    
 </apex:page>

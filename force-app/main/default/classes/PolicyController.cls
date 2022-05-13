@@ -1,26 +1,44 @@
-public with sharing class PolicyController {
+public class PolicyController {
     
-    public String name {get; set;}
-    public Integer specialNumber {get; set;}
-    public String specialText {get; set;}
+    public List<Policy__c> Policies {get; set;}
+    public List<Policy__c> filteredList {get; set;}
+    public String filter {get; set;}
+    public Id polId {get; set;}
     
     public PolicyController() {
-        name = null;
-        specialNumber = null;
-        specialText = null;
+        
+        filter = null;
+        polId = null;
+        
+        List<Policy__c> allPols = [SELECT Id, Name, Account__r.Name, ProductP__c FROM Policy__c];
+        Policies = new List<Policy__c>();
+        filteredList = new List<Policy__c>();
+
+        for(Policy__c currPol : allPols){
+            Policies.add(currPol);
+            filteredList.add(currPol);
+        }
     }
     
     public PageReference NextPage() {
+        System.debug('NextPage()' + polId);
+        polId = Apexpages.currentpage().getParameters().get('polId');
+        System.debug('NextPage()' + polId);
         return Page.PoliciesPage2;
     }
     
     public PageReference PrevPage() {
+        System.debug('PrevPage()' + polId);
         return Page.PoliciesPage;
     }
     
-    public PageReference GoogleMethod() {
-        PageReference googlePage = new PageReference('http://www.google.com/search?q=' + name);
-        googlePage.setRedirect(true);
-        return googlePage;
+    public void FilterList(){
+        filteredList = new List<Policy__c>();
+        for(Policy__c currPol : Policies){
+            String lowercasePol = currPol.Name.toLowerCase();
+            if(lowercasePol.Contains(filter)){ 
+                filteredList.add(currPol);
+            }
+        }
     }
 }
