@@ -23,16 +23,18 @@ public with sharing class AccountHandler {
         for (Account acc: Accounts) {
             setPhone.add(acc.Phone);
         }
+        setPhone.remove(null);
+
         if(setPhone.size() > 0) {
-            List<Account> lstAccount = [SELECT Phone, id FROM Account WHERE Phone in :setPhone];
+            List<Account> listAccount = [SELECT Phone, id FROM Account WHERE Phone IN :setPhone];
             Map<String, Account> mapPhoneVsAccount = new Map<String, Account>();
-            For(Account acc: lstAccount) {
+            for(Account acc: listAccount) {
                 mapPhoneVsAccount.put(acc.Phone, acc);
             }
 
-            For(Account acc: Accounts) {
+            for(Account acc: Accounts) {
                 if(mapPhoneVsAccount.containsKey(acc.Phone)) {
-                    acc.addError('Duplicate! Phone exists already!');
+                    acc.addError('Duplicate! Phone number exists already!');
                 }
             }
         }
