@@ -539,10 +539,6 @@
         <apexPage>OpportunityVFPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>UserPage</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Policy__c.Health_Insurance</recordType>
