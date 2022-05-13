@@ -5,10 +5,12 @@
     Different tables and checkboxes to be able to show and hide the data as required.
 -->
 
-<apex:page controller="OppController" pageStyle="background-color:#87FCDC;font-weight: bold;" >
+<apex:page controller="OppController" pageStyle="background-color:#87FCDC;font-weight: bold;" lightningStyleSheets="true" >
     <apex:form >
     	<div style="background-color: #76BFD5;" >
-        	<apex:sectionHeader subtitle="All Opportunities By Stage For: {! $User.FirstName & ' ' & $User.LastName }"/>
+        	<h1 style="text-align: center;">
+                All Opportunities By Stage For: {! $User.FirstName & ' ' & $User.LastName }
+            </h1>
         	<apex:pageBlock title="Prospecting Stage" id="pageBlockProspect">
                 <apex:inputCheckbox id="Prospecting" value="{!ShowProspect}" >
                     <apex:actionSupport event="onchange" action="{!ToggleShowProspect}"/>
