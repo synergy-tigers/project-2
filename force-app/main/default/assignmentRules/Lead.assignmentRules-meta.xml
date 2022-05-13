@@ -1,33 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignmentRule>
-        <fullName>Insura Lead  assignment rule</fullName>
-        <active>false</active>
+        <fullName>Insuraforce Lead Assignment</fullName>
+        <active>true</active>
         <ruleEntry>
-            <assignedTo>Queue1</assignedTo>
-            <assignedToType>Queue</assignedToType>
+            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Country</field>
+                <operation>equals</operation>
+                <value>US</value>
+            </criteriaItems>
             <criteriaItems>
                 <field>Lead.State</field>
-                <operation>contains</operation>
-                <value>Newyork</value>
+                <operation>equals</operation>
+                <value>CT</value>
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>Queue2</assignedTo>
-            <assignedToType>Queue</assignedToType>
+            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Country</field>
+                <operation>equals</operation>
+                <value>US</value>
+            </criteriaItems>
             <criteriaItems>
                 <field>Lead.State</field>
-                <operation>contains</operation>
-                <value>California</value>
+                <operation>equals</operation>
+                <value>NY</value>
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>queue3</assignedTo>
-            <assignedToType>Queue</assignedToType>
+            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Country</field>
+                <operation>equals</operation>
+                <value>USA</value>
+            </criteriaItems>
             <criteriaItems>
                 <field>Lead.State</field>
-                <operation>contains</operation>
-                <value>Florida</value>
+                <operation>equals</operation>
+                <value>MA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Country</field>
+                <operation>equals</operation>
+                <value>USA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>notEqual</operation>
+                <value>CT</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>notEqual</operation>
+                <value>MA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>notEqual</operation>
+                <value>NY</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Country</field>
+                <operation>notEqual</operation>
+                <value>US</value>
             </criteriaItems>
         </ruleEntry>
     </assignmentRule>

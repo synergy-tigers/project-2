@@ -61,7 +61,6 @@ public class TestOrderHandler {
         List<Policy__c> polsForTest = new List<Policy__c>();
         polsForTest.add(new Policy__c(Account__c = AccsForTest[1].Id,
                                       Policy_Owner1__c = ConsForTest[1].Id,
-                                      //Order__c = testOrders[1].Id,
                                       Policy_Owner_Phone__c = ConsForTest[1].Phone,
                                       Policy_Cost__c = 1000,
                                       Policy_Status__c = 'active',
@@ -69,7 +68,6 @@ public class TestOrderHandler {
                                       Policy_Quantity__c = 1));
         polsForTest.add(new Policy__c(Account__c = AccsForTest[2].Id,
                                       Policy_Owner1__c = ConsForTest[2].Id,
-                                      //Order__c = testOrders[2].Id,
                                       Policy_Owner_Phone__c = ConsForTest[2].Phone,
                                       Policy_Cost__c = 500,
                                       Policy_Status__c = 'active',
