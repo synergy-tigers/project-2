@@ -1,3 +1,9 @@
+/*
+    Created By: Kevin Neisser 
+    Last Updated: 5/13/2022 
+    Description: controller for the OpportunityVFPage.page uses soql to obtain lists of different stages for opportunity object and show them in separate page block tables.
+    Also using checkboxes to selectivly hide the tables if the user does not want to see them.
+*/
 public class OppController {
     
     //checkbox for Prospects table
