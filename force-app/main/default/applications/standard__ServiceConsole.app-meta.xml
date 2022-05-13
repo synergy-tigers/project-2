@@ -181,9 +181,17 @@
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>Policy__c</tabs>
+    <tabs>VF_Opportunity</tabs>
+    <tabs>Case_Overview</tabs>
     <workspaceConfig>
         <mappings>
+            <tab>Case_Overview</tab>
+        </mappings>
+        <mappings>
             <tab>Policy__c</tab>
+        </mappings>
+        <mappings>
+            <tab>VF_Opportunity</tab>
         </mappings>
         <mappings>
             <tab>standard-Account</tab>

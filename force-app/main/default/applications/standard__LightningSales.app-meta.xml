@@ -43,5 +43,7 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Forecasting3</tabs>
     <tabs>Policy__c</tabs>
+    <tabs>VF_Opportunity</tabs>
+    <tabs>Case_Overview</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
