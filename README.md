@@ -33,8 +33,8 @@
 ### Apex Testing
   * Ensure that Apex code has adequate test coverage and follow testing best practices both individually and as a team
     - [ ] Andy
-    - [ ] Jonathan
-    - [ ] Kevin
+    - [X] Jonathan
+    - [X] Kevin
     - [ ] Rachel
 
 ### Apex Triggers
@@ -54,30 +54,29 @@
 
 ### Visualforce
   * A Visualforce page relevant to the business use case
-    - [ ] Andy
-    - [ ] `Jonathan` Policies
+    - [ ] `Andy` Account
+    - [X] `Jonathan` Policies
     - [X] `Kevin` Opportunities
     - [X] `Rachel` Cases
   * Associated custom Apex code (either through a Custom Controller or Controller Extension)
     - [ ] Andy
-    - [ ] Jonathan
+    - [X] Jonathan
     - [X] Kevin
     - [X] Rachel
-    - [ ] Rama
 
 ## Peripheral Requirements
 
 ### Sales Cloud
   * `Rama` Lead assignment rules
-  * `Not Assigned` Lead auto-response rules
-  * `Not Assigned` Web-to-lead
-  * `Not Assigned` Opportunity path with a celebratory effect upon completion
+  * `Kevin` Lead auto-response rules
+  * `Rachel` Web-to-lead
+  * `Kevin` Opportunity path with a celebratory effect upon completion
 
 ### Service Cloud
-  * `Not Assigned` Case assignment rules
-  * `Not Assigned` Case auto-response rules
-  * `Not Assigned` Web-to-case
-  * `Not Assigned` Case path
+  * `Kevin` Case assignment rules
+  * `Kevin` Case auto-response rules
+  * `Kevin` Web-to-case
+  * `Kevin` Case path
 
 ### Process Automation
   * Workflow rule
@@ -87,7 +86,7 @@
   * `All` Platform-event-triggered flow
 
 ### Experience Cloud
-  * `All` Create a customer-facing Experience Cloud site
+  * `Rachel` Create a customer-facing Experience Cloud site
   
 ### Lightning Web Components
-  * `All` Create multiple Lightning web components surfaced either internally or on the customer-facing Experience site
+  * `Rachel` Create multiple Lightning web components surfaced either internally or on the customer-facing Experience site
