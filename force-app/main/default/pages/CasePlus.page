@@ -19,7 +19,7 @@
                         <h1 class="slds-text-heading_medium">{! $User.FirstName & ' ' & $User.LastName}'s Cases</h1>
                     </div>
                     <div class="slds-col slds-size_2-of-12">
-                        <apex:outputLabel value="Sort by  " for="sort-dropdown">
+                        <apex:outputLabel value="Sort by " for="sort-dropdown">
                             <apex:selectList value="{!sortSelection}" size="1" multiselect="false" id="sort-dropdown">
                                 <apex:actionSupport event="onchange" action="{!sortCases}" reRender="case-grid" />
                                 <apex:selectOptions value="{!sortOptions}" />
@@ -57,7 +57,7 @@
                                     </apex:commandLink>
                                     <br />
                                 </apex:outputPanel>
-                                <apex:outputPanel id="description-panel" rendered="{!(fcp.wrappedCase.Description !='')}">
+                                <apex:outputPanel id="description-panel">
                                     <apex:outputLabel value="Description" for="case-desc" styleClass="field-lbl" />
                                     <apex:outputText value="{!fcp.wrappedCase.Description}" id="case-desc" styleClass="field-val" />
                                     <br />
@@ -79,6 +79,12 @@
                                 <apex:outputPanel rendered="{!fcp.showMore}" id="more-info">
                                     <hr />
                                     <apex:outputPanel rendered="{!fcp.showPolicyInfo}" id="policy-info">
+                                        <apex:outputLabel value="Go to" for="pol-detail" />
+                                        <apex:commandLink value="{!fcp.wrappedPolicy.Name}" id="pol-detail" action="{!goToRecordPage}">
+                                            <apex:param name="recordId" value="{!fcp.wrappedPolicy.Id}" />
+                                            <apex:param name="recordType" value="Policy" />
+                                        </apex:commandLink>
+                                        <br />
                                         <apex:outputLabel value="Policy Cost" for="pol-cost" styleClass="field-lbl" />
                                         <apex:outputText value="${!fcp.wrappedPolicy.Policy_Cost__c}" id="pol-cost" styleClass="field-val" />
                                         <br />
@@ -89,6 +95,12 @@
                                         <apex:outputText value="{!fcp.wrappedPolicy.ProductP__c}" id="pol-prod" styleClass="field-val" />
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!fcp.showContactInfo}" id="contact-info">
+                                        <apex:outputLabel value="Go to" for="con-detail" />
+                                        <apex:commandLink value="{!fcp.wrappedContact.Name}" id="con-detail" action="{!goToRecordPage}">
+                                            <apex:param name="recordId" value="{!fcp.wrappedContact.Id}" />
+                                            <apex:param name="recordType" value="Contact" />
+                                        </apex:commandLink>
+                                        <br />
                                         <apex:outputLabel value="Phone" for="con-phone" styleClass="field-lbl" />
                                         <apex:outputText value="{!fcp.wrappedContact.Phone}" id="con-phone" styleClass="field-val" />
                                         <br />
@@ -96,6 +108,12 @@
                                         <apex:outputText value="{!fcp.wrappedContact.Email}" id="con-email" styleClass="field-val" />
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!fcp.showAccountInfo}" id="account-info">
+                                        <apex:outputLabel value="Go to" for="acc-detail" />
+                                        <apex:commandLink value="{!fcp.wrappedAccount.Name}" id="acc-detail" action="{!goToRecordPage}">
+                                            <apex:param name="recordId" value="{!fcp.wrappedAccount.Id}" />
+                                            <apex:param name="recordType" value="Account" />
+                                        </apex:commandLink>
+                                        <br />
                                         <apex:outputLabel value="Name" for="acc-name" styleClass="field-lbl" />
                                         <apex:outputText value="{!fcp.wrappedAccount.Name}" id="acc-name" styleClass="field-val" />
                                         <br />
