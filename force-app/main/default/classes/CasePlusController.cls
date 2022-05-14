@@ -8,7 +8,7 @@ public class CasePlusController {
     public List<Case> AllUserCases {get {
         String userId = UserInfo.getUserId();
         return [SELECT OwnerId, AccountId, ContactId, Policy__c, CaseNumber, CreatedDate, Reason, Subject, Description, Priority, Status
-                FROM Case WHERE OwnerId = :userId];
+                FROM Case WHERE OwnerId = :userId AND Status != 'Closed'];
     } private set;}
 
     public List<CasePlusWrapper> wrappedCasePlus {get; set;}
