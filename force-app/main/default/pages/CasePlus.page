@@ -34,7 +34,8 @@
                         <apex:repeat value="{!filteredCasePlus}" var="fcp">
                             <div class="slds-col slds-size_3-of-12 slds-card slds-m-around_small slds-p-around_small">
                                 <apex:outputPanel id="subject-panel">
-                                    <apex:commandLink value="{!fcp.wrappedCase.Subject}" action="{!goToRecordPage}" styleClass="slds-text-heading_small slds-p-top_small">
+                                    <apex:commandLink value="{!If((fcp.wrappedCase.Subject != null), fcp.wrappedCase.Subject, 'Case #' & fcp.wrappedCase.CaseNumber)}"
+                                        action="{!goToRecordPage}" styleClass="slds-text-heading_small slds-p-top_small">
                                         <apex:param name="recordId" value="{!fcp.wrappedCase.Id}" />
                                         <apex:param name="recordType" value="Case" />
                                     </apex:commandLink>
