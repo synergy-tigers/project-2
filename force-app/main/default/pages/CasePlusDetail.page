@@ -1,0 +1,24 @@
+<!--
+    Created by: Rachel Galang
+    Description: Visualforce page markup for CasePlus record pages
+-->
+<apex:page controller="CasePlusController" applyHtmlTag="false" applyBodyTag="false" showHeader="false" standardStylesheets="false"
+    lightningStyleSheets="true">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <head>
+        <apex:slds />
+    </head>
+
+    <apex:pageBlock>
+        <apex:form>
+            <apex:outputPanel styleClass="slds-breadcrumb slds-list_horizontal slds-wrap">
+                <apex:commandLink value="Back" action="{!goToCasePlusPage}" styleClass="slds-breadcrumb__item" /> >
+                <span style="font-weight: bold;">{!recordType} Record</span>
+            </apex:outputPanel>
+        </apex:form>
+        <apex:detail subject="{!recordId}" />
+    </apex:pageBlock>
+
+    </html>
+</apex:page>
