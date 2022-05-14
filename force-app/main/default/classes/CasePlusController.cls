@@ -31,6 +31,8 @@ public class CasePlusController {
         return sortSelection;
     } set;}
 
+    public String filterText {get; set;}
+
     public Boolean expandInfo {get {
         if (expandInfo == null){
             expandInfo = false;
@@ -113,16 +115,6 @@ public class CasePlusController {
         }
     }
 
-    public PageReference goToRecordPage() {
-        recordId = ApexPages.currentPage().getParameters().get('recordId');
-        recordType = ApexPages.currentPage().getParameters().get('recordType');
-        return Page.CasePlusDetail;
-    }
-
-    public PageReference goToCasePlusPage() {
-        return Page.CasePlus;
-    }
-
     private void sortByPriority(String sortOrder) {
         Map<String, List<CasePlusWrapper>> priorityMap = new Map<String, List<CasePlusWrapper>>();
 
@@ -197,6 +189,25 @@ public class CasePlusController {
         }
     }
 
+    public void filterCases() {
+        filteredCasePlus = new List<CasePlusWrapper>();
+        for (CasePlusWrapper c : wrappedCasePlus) {
+            if (c.filterString().containsIgnoreCase(filterText)) {
+                filteredCasePlus.add(c);
+            }
+        }
+    }
+
+    public PageReference goToRecordPage() {
+        recordId = ApexPages.currentPage().getParameters().get('recordId');
+        recordType = ApexPages.currentPage().getParameters().get('recordType');
+        return Page.CasePlusDetail;
+    }
+
+    public PageReference goToCasePlusPage() {
+        return Page.CasePlus;
+    }
+
     public class CasePlusWrapper {
         //case and related records
         public Case wrappedCase {get; set;}
@@ -258,6 +269,30 @@ public class CasePlusController {
                     showMore = false;
                 }
             }
+        }
+
+        public String filterString() {
+            String fString = '';
+            fString += wrappedCase.Status;
+            if (wrappedCase.Priority != null) {
+                fString += ' ' + wrappedCase.Priority;
+            }
+            if (wrappedCase.Subject != null) {
+                fString += ' ' + wrappedCase.Subject;
+            }
+            if (wrappedCase.Description != null) {
+                fString += ' ' + wrappedCase.Description;
+            }
+            if (wrappedAccount != null) {
+                fString += ' ' + wrappedAccount.Name;
+            }
+            if (wrappedContact != null) {
+                fString += ' ' + wrappedContact.Name;
+            }
+            if (wrappedPolicy != null) {
+                fString += ' ' + wrappedPolicy.Name;
+            }
+            return fString;
         }
     }
 }

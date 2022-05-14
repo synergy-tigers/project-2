@@ -19,12 +19,17 @@
                         <h1 class="slds-text-heading_medium">{! $User.FirstName & ' ' & $User.LastName}'s Cases</h1>
                     </div>
                     <div class="slds-col slds-size_2-of-12">
-                        <apex:outputLabel value="Sort by " for="sort-dropdown">
-                            <apex:selectList value="{!sortSelection}" size="1" multiselect="false" id="sort-dropdown">
-                                <apex:actionSupport event="onchange" action="{!sortCases}" reRender="case-grid" />
-                                <apex:selectOptions value="{!sortOptions}" />
-                            </apex:selectList>
-                        </apex:outputLabel>
+                        <apex:outputLabel value="Sort by " for="sort-dropdown" />
+                        <apex:selectList value="{!sortSelection}" size="1" multiselect="false" id="sort-dropdown">
+                            <apex:actionSupport event="onchange" action="{!sortCases}" reRender="case-grid" />
+                            <apex:selectOptions value="{!sortOptions}" />
+                        </apex:selectList>
+                    </div>
+
+                    <div class="slds-col slds-size_2-of-12">
+                        <apex:inputText styleClass="slds-input" value="{!filterText}" id="filter-input">
+                            <apex:actionSupport event="onkeyup" action="{!filterCases}" reRender="case-grid" />
+                        </apex:inputText>
                     </div>
                 </div>
             </div>
