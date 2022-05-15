@@ -23,7 +23,9 @@
   * `Kevin` After-save Flow 
     - Create an order from an opportunity
     - Create a policy from an order
-  * `Rama` Autolaunched Flow 
+  * `Rachel` Autolaunched Flow
+    - Flow: When a case is created with a contact that's tied to an account, the account will also be linked to the case if the account field has not been filled in
+    - Launched with a before insert trigger on Case
 
 ### Reports & Dashboards
   * `Andy` At least one standard and one custom report
@@ -67,7 +69,7 @@
 ## Peripheral Requirements
 
 ### Sales Cloud
-  * `Rama` Lead assignment rules
+  * `Kevin` Lead assignment rules
   * `Kevin` Lead auto-response rules
   * `Rachel` Web-to-lead
   * `Kevin` Opportunity path with a celebratory effect upon completion
@@ -86,7 +88,7 @@
   * `All` Platform-event-triggered flow
 
 ### Experience Cloud
-  * `Rachel` Create a customer-facing Experience Cloud site
+  * `All` Create a customer-facing Experience Cloud site
   
 ### Lightning Web Components
-  * `Rachel` Create multiple Lightning web components surfaced either internally or on the customer-facing Experience site
+  * `All` Create multiple Lightning web components surfaced either internally or on the customer-facing Experience site
