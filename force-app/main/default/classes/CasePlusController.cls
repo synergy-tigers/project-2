@@ -1,20 +1,37 @@
-public with sharing class CasePlusController {
+/* 
+Created by: Rachel Galang
+Description: Controller for CasePlus and CasePlusDetail VF pages
+*/
+
+public class CasePlusController {
 
     public List<Case> AllUserCases {get {
         String userId = UserInfo.getUserId();
-        return [SELECT OwnerId, AccountId, ContactId, Policy__c, CreatedDate, Reason, Subject, Description, Priority, Status
-                FROM Case WHERE OwnerId = :userId];
+        return [SELECT OwnerId, AccountId, ContactId, Policy__c, CaseNumber, CreatedDate, Reason, Subject, Description, Priority, Status
+                FROM Case WHERE OwnerId = :userId AND Status != 'Closed'];
     } private set;}
 
     public List<CasePlusWrapper> wrappedCasePlus {get; set;}
     public List<CasePlusWrapper> filteredCasePlus {get; set;}
 
-    public Boolean expandInfo {get {
-        if (expandInfo == null){
-            expandInfo = false;
-        }
-        return expandInfo;
+    public Id recordId {get; set;}
+    public String recordType {get; set;}
+
+    public List<SelectOption> sortOptions {get {
+        sortOptions = new List<SelectOption>();
+        sortOptions.add(new SelectOption('', '--NONE--'));
+        sortOptions.add(new SelectOption('priAsc', 'Priority ASC'));
+        sortOptions.add(new SelectOption('priDesc', 'Priority DESC'));
+        sortOptions.add(new SelectOption('statAsc', 'Status ASC'));
+        sortOptions.add(new SelectOption('statDesc', 'Status DESC'));
+        return sortOptions;
     } set;}
+
+    public String sortSelection {get {
+        return sortSelection;
+    } set;}
+
+    public String filterText {get; set;}
 
     public CasePlusController() {
         wrappedCasePlus = new List<CasePlusWrapper>();
@@ -74,6 +91,128 @@ public with sharing class CasePlusController {
         }
     }
 
+    public void sortCases() {
+        switch on sortSelection {
+            when 'priAsc' {
+                sortByPriority('asc');
+            }
+            when 'priDesc' {
+                sortByPriority('desc');
+            }
+            when 'statAsc' {
+                sortByStatus('asc');
+            }
+            when 'statDesc' {
+                sortByStatus('desc');
+            }
+        }
+    }
+
+    private void sortByPriority(String sortOrder) {
+        Map<String, List<CasePlusWrapper>> priorityMap = new Map<String, List<CasePlusWrapper>>();
+
+        List<CasePlusWrapper> tempList = new List<CasePlusWrapper>(filteredCasePlus);
+        filteredCasePlus = new List<CasePlusWrapper>();
+        List<String> priorityTypes;
+
+        priorityMap.put('null', new List<CasePlusWrapper>());
+        priorityMap.put('low', new List<CasePlusWrapper>());
+        priorityMap.put('med', new List<CasePlusWrapper>());
+        priorityMap.put('high', new List<CasePlusWrapper>());
+
+        for (CasePlusWrapper c : tempList) {
+            if (c.wrappedCase.Priority == null) {
+                priorityMap.get('null').add(c);
+            }
+            else if (c.wrappedCase.Priority == 'Low') {
+                priorityMap.get('low').add(c);
+            }
+            else if (c.wrappedCase.Priority == 'Medium') {
+                priorityMap.get('med').add(c);
+            }
+            else if (c.wrappedCase.Priority == 'High') {
+                priorityMap.get('high').add(c);
+            }
+        }
+
+        if (sortOrder == 'asc') {
+            priorityTypes = new List<String>{'null', 'low', 'med', 'high'};
+        }
+        else {
+            priorityTypes = new List<String>{'high', 'med', 'low', 'null'};
+        }
+
+        for (String priority : priorityTypes) {
+            filteredCasePlus.addAll(priorityMap.get(priority));
+        }
+    }
+
+    private void sortByStatus(String sortOrder) {
+        Map<String, List<CasePlusWrapper>> statusMap = new Map<String, List<CasePlusWrapper>>();
+
+        List<CasePlusWrapper> tempList = new List<CasePlusWrapper>(filteredCasePlus);
+        filteredCasePlus = new List<CasePlusWrapper>();
+        List<String> statusTypes;
+
+        statusMap.put('new', new List<CasePlusWrapper>());
+        statusMap.put('work', new List<CasePlusWrapper>());
+        statusMap.put('esc', new List<CasePlusWrapper>());
+
+        for (CasePlusWrapper c : tempList) {
+            if (c.WrappedCase.Status == 'New') {
+                statusMap.get('new').add(c);
+            }
+            else if (c.WrappedCase.Status == 'Working') {
+                statusMap.get('work').add(c);
+            }
+            else if (c.wrappedCase.Status == 'Escalated') {
+                statusMap.get('esc').add(c);
+            }
+        }
+
+        if (sortOrder == 'asc') {
+            statusTypes = new List<String>{'new', 'work', 'esc'};
+        }
+        else {
+            statusTypes = new List<String>{'esc', 'work', 'new'};
+        }
+
+        for (String status : statusTypes) {
+            filteredCasePlus.addAll(statusMap.get(status));
+        }
+    }
+
+    public void filterCases() {
+        filteredCasePlus = new List<CasePlusWrapper>();
+        List<String> filters;
+        for (CasePlusWrapper c : wrappedCasePlus) {
+            filters = filterText.split(',');
+            if (containsAll(filters, c.filterString())) {
+                filteredCasePlus.add(c);
+            }
+        }
+    }
+
+    private Boolean containsAll(List<String> filters, String filterString) {
+        String filterStripped;
+        for (String filter : filters) {
+            filterStripped = filter.normalizeSpace();
+            if(!filterString.containsIgnoreCase(filterStripped)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public PageReference goToRecordPage() {
+        recordId = ApexPages.currentPage().getParameters().get('recordId');
+        recordType = ApexPages.currentPage().getParameters().get('recordType');
+        return Page.CasePlusDetail;
+    }
+
+    public PageReference goToCasePlusPage() {
+        return Page.CasePlus;
+    }
 
     public class CasePlusWrapper {
         //case and related records
@@ -88,9 +227,6 @@ public with sharing class CasePlusController {
         public Boolean showPolicyInfo {get; set;}
         public Boolean showContactInfo {get; set;}
         public Boolean showAccountInfo {get; set;}
-
-        //variables for setting up filters
-        Map<String,String> pFilterValues {get; set;}
 
         public CasePlusWrapper(Case c, Contact con, Policy__c pol, Account acc) {
             wrappedCase = c;
@@ -126,10 +262,11 @@ public with sharing class CasePlusController {
                 }
                 else if (option == 'Account') {
                     showPolicyInfo = false;
-                    showContactInfo = true;
+                    showContactInfo = false;
                     showAccountInfo = true;
                 }
                 else {
+                    expansion = 'None';
                     showPolicyInfo = false;
                     showContactInfo = false;
                     showAccountInfo = false;
@@ -138,26 +275,28 @@ public with sharing class CasePlusController {
             }
         }
 
-        // Things I want to filter by...
-        // Case: status, priority
-        // Contact: name
-        // Account: name
-        // Policy: number, product
-        public void setupPFilters() {
-            pFilterValues.put('Case Status', wrappedCase.Status);
+        public String filterString() {
+            String fString = '';
+            fString += wrappedCase.Status;
             if (wrappedCase.Priority != null) {
-                pFilterValues.put('Case Priority', wrappedCase.Priority);
+                fString += ' ' + wrappedCase.Priority;
+            }
+            if (wrappedCase.Subject != null) {
+                fString += ' ' + wrappedCase.Subject;
+            }
+            if (wrappedCase.Description != null) {
+                fString += ' ' + wrappedCase.Description;
             }
             if (wrappedAccount != null) {
-                pFilterValues.put('Account Name', wrappedAccount.Name);
+                fString += ' ' + wrappedAccount.Name;
             }
             if (wrappedContact != null) {
-                pFilterValues.put('Contact Name', wrappedContact.Name);
+                fString += ' ' + wrappedContact.Name;
             }
             if (wrappedPolicy != null) {
-                pFilterValues.put('Policy Number', wrappedPolicy.Name);
-                pFilterValues.put('Policy Product', wrappedPolicy.ProductP__c);
+                fString += ' ' + wrappedPolicy.Name;
             }
+            return fString;
         }
     }
 }

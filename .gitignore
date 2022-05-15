@@ -50,3 +50,6 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+manifest/tests.xml
+manifest/vfpage.xml

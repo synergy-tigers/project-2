@@ -23,7 +23,9 @@
   * `Kevin` After-save Flow 
     - Create an order from an opportunity
     - Create a policy from an order
-  * `Rama` Autolaunched Flow 
+  * `Rachel` Autolaunched Flow
+    - Flow: When a case is created with a contact that's tied to an account, the account will also be linked to the case if the account field has not been filled in
+    - Launched with Process Builder
 
 ### Reports & Dashboards
   * `Andy` At least one standard and one custom report
@@ -33,9 +35,9 @@
 ### Apex Testing
   * Ensure that Apex code has adequate test coverage and follow testing best practices both individually and as a team
     - [ ] Andy
-    - [ ] Jonathan
-    - [ ] Kevin
-    - [ ] Rachel
+    - [X] Jonathan
+    - [X] Kevin
+    - [X] Rachel
 
 ### Apex Triggers
   * `Kevin` Accounts can't have more than one health insurance policy. Trying to add more than one health insurance product should trigger an error 
@@ -54,30 +56,29 @@
 
 ### Visualforce
   * A Visualforce page relevant to the business use case
-    - [ ] Andy
-    - [ ] `Jonathan` Policies
+    - [ ] `Andy` Account
+    - [X] `Jonathan` Policies
     - [X] `Kevin` Opportunities
     - [X] `Rachel` Cases
   * Associated custom Apex code (either through a Custom Controller or Controller Extension)
     - [ ] Andy
-    - [ ] Jonathan
+    - [X] Jonathan
     - [X] Kevin
     - [X] Rachel
-    - [ ] Rama
 
 ## Peripheral Requirements
 
 ### Sales Cloud
-  * `Rama` Lead assignment rules
-  * `Not Assigned` Lead auto-response rules
-  * `Not Assigned` Web-to-lead
-  * `Not Assigned` Opportunity path with a celebratory effect upon completion
+  * `Kevin` Lead assignment rules
+  * `Kevin` Lead auto-response rules
+  * `Rachel` Web-to-lead
+  * `Kevin` Opportunity path with a celebratory effect upon completion
 
 ### Service Cloud
-  * `Not Assigned` Case assignment rules
-  * `Not Assigned` Case auto-response rules
-  * `Not Assigned` Web-to-case
-  * `Not Assigned` Case path
+  * `Kevin` Case assignment rules
+  * `Kevin` Case auto-response rules
+  * `Kevin` Web-to-case
+  * `Kevin` Case path
 
 ### Process Automation
   * Workflow rule

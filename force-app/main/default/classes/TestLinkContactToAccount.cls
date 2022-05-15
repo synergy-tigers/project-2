@@ -4,14 +4,9 @@ Description: Test class for before insert Contact trigger handler
 that checks  to see if a contact has a matching phone number with
 any account record and links it to the account if there a match.
 
-When modifying accountID in an Apex trigger, the field is not
-actually populated with the correct value until just before
-the after trigger events. For this reason, I had to query
-for the contact objects I created in order to have access
-to the AccountId field with the correct value.
-Source: https://help.salesforce.com/s/articleView?id=000335451&type=1
-The above refers specifically to cases, but should apply
-to Contacts as well.
+For some reason, I had to query for the contact objects 
+I created in order to have access to the AccountId field.
+Otherwise, I would just get null for Accountid.
 */
 
 @isTest
