@@ -33,13 +33,6 @@ public class CasePlusController {
 
     public String filterText {get; set;}
 
-    public Boolean expandInfo {get {
-        if (expandInfo == null){
-            expandInfo = false;
-        }
-        return expandInfo;
-    } set;}
-
     public CasePlusController() {
         wrappedCasePlus = new List<CasePlusWrapper>();
         filteredCasePlus = new List<CasePlusWrapper>();
