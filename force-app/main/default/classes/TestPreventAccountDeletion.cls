@@ -5,7 +5,7 @@ that prevents deletion if the account has an active policy attached.
 */
 
 @isTest
-public class TestPreventDeletion {
+public class TestPreventAccountDeletion {
     @isTest static void TestAccountHasActivePolicy() {
         Test.startTest();
         Account testAccount = new Account(Name='HasPolicy');

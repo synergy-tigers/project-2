@@ -35,7 +35,7 @@
     - [ ] Andy
     - [X] Jonathan
     - [X] Kevin
-    - [ ] Rachel
+    - [X] Rachel
 
 ### Apex Triggers
   * `Kevin` Accounts can't have more than one health insurance policy. Trying to add more than one health insurance product should trigger an error 

@@ -256,6 +256,7 @@ public class CasePlusController {
                     showAccountInfo = true;
                 }
                 else {
+                    expansion = 'None';
                     showPolicyInfo = false;
                     showContactInfo = false;
                     showAccountInfo = false;
