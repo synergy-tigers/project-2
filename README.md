@@ -25,7 +25,7 @@
     - Create a policy from an order
   * `Rachel` Autolaunched Flow
     - Flow: When a case is created with a contact that's tied to an account, the account will also be linked to the case if the account field has not been filled in
-    - Launched with a before insert trigger on Case
+    - Launched with Process Builder
 
 ### Reports & Dashboards
   * `Andy` At least one standard and one custom report
