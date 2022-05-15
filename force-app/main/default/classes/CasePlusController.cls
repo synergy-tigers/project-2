@@ -184,11 +184,24 @@ public class CasePlusController {
 
     public void filterCases() {
         filteredCasePlus = new List<CasePlusWrapper>();
+        List<String> filters;
         for (CasePlusWrapper c : wrappedCasePlus) {
-            if (c.filterString().containsIgnoreCase(filterText)) {
+            filters = filterText.split(',');
+            if (containsAll(filters, c.filterString())) {
                 filteredCasePlus.add(c);
             }
         }
+    }
+
+    private Boolean containsAll(List<String> filters, String filterString) {
+        String filterStripped;
+        for (String filter : filters) {
+            filterStripped = filter.normalizeSpace();
+            if(!filterString.containsIgnoreCase(filterStripped)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public PageReference goToRecordPage() {
@@ -214,9 +227,6 @@ public class CasePlusController {
         public Boolean showPolicyInfo {get; set;}
         public Boolean showContactInfo {get; set;}
         public Boolean showAccountInfo {get; set;}
-
-        //variables for setting up filters
-        Map<String,String> pFilterValues {get; set;}
 
         public CasePlusWrapper(Case c, Contact con, Policy__c pol, Account acc) {
             wrappedCase = c;
