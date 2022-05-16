@@ -7,7 +7,40 @@ Description: Tests for CasePlusController
 public class TestCasePlusController {
 
     @TestSetup static void setup() {
-        //tbd
+        List<Case> testCases = new List<Case>();
+        List<Contact> testCons = new List<Contact>();
+        List<Policy__c> testPols = new List<Policy__c>();
+        List<Account> testAccs = new List<Account>();
+        for (Integer i = 0; i < 100; i++) {
+            testAccs.add(new Account(Name='TestAcc ' + i));
+            testCons.add(new Contact(LastName='TestCon ' + i));
+        }
+        insert testAccs;
+        insert testCons;
+
+        for (Integer i = 0; i < 100; i++) {
+            testPols.add(new Policy__c(Account__c = testAccs[i].Id,
+                                       Policy_Status__c = 'Active',
+                                       Policy_Owner_Phone__c = '111-123-1234',
+                                       ProductP__c = '19F',
+                                       Policy_Quantity__c = 1,
+                                       Policy_Cost__C = 1000));
+        }
+        
+        insert testPols;
+
+        for (Integer i = 0; i < 100; i++) {
+            List<String> priorities = new List<String>{'Low', 'Medium', 'High'};
+            List<String> statuses = new List<String>{'New', 'Working', 'Escalated'};
+            testCases.add(new Case(Status=statuses[Integer.valueOf(Math.random() * 3)],
+                                    Origin='Web',
+                                    Priority= priorities[Integer.valueOf(Math.random() * 3)],
+                                    Subject='CasePlusTesting',
+                                    AccountId = testAccs[i].Id,
+                                    ContactId = testCons[i].Id,
+                                    Policy__c = testPols[i].Id));
+        }
+        insert testCases;
     }
 
     @isTest static void TestGoToRecordPage() {
@@ -31,64 +64,47 @@ public class TestCasePlusController {
     }
 
     @isTest static void TestSortByStatus() {
-        Case testCase1 = new Case(Status='New', Origin='Web', Priority='Low', Subject='CasePlusTesting');
-        Case testCase2 = new Case(Status='Working', Origin='Web', Priority='Medium', Subject='CasePlusTesting');
-        Case testCase3 = new Case(Status='Escalated', Origin='Web', Priority='High', Subject='CasePlusTesting');
-
         CasePlusController controller = new CasePlusController();
-
-        CasePlusController.CasePlusWrapper testCpw1 = new CasePlusController.CasePlusWrapper(testCase1, null, null, null);
-        CasePlusController.CasePlusWrapper testCpw2 = new CasePlusController.CasePlusWrapper(testCase2, null, null, null);
-        CasePlusController.CasePlusWrapper testCpw3 = new CasePlusController.CasePlusWrapper(testCase3, null, null, null);
-
-        controller.filteredCasePlus.add(testCpw1);
-        controller.filteredCasePlus.add(testCpw2);
-        controller.filteredCasePlus.add(testCpw3);
 
         controller.sortSelection = 'statAsc';
         controller.sortCases();
         System.assertEquals('New', controller.filteredCasePlus[0].wrappedCase.Status);
-        System.assertEquals('Working', controller.filteredCasePlus[1].wrappedCase.Status);
-        System.assertEquals('Escalated', controller.filteredCasePlus[2].wrappedCase.Status);
+        System.assertEquals('Escalated', controller.filteredCasePlus[99].wrappedCase.Status);
 
         controller.sortSelection = 'statDesc';
         controller.sortCases();
         System.assertEquals('Escalated', controller.filteredCasePlus[0].wrappedCase.Status);
-        System.assertEquals('Working', controller.filteredCasePlus[1].wrappedCase.Status);
-        System.assertEquals('New', controller.filteredCasePlus[2].wrappedCase.Status);
+        System.assertEquals('New', controller.filteredCasePlus[99].wrappedCase.Status);
     }
 
     @isTest static void TestSortByPriority() {
-        Case testCase1 = new Case(Status='New', Origin='Web', Priority='Low', Subject='CasePlusTesting');
-        Case testCase2 = new Case(Status='Working', Origin='Web', Priority='Medium', Subject='CasePlusTesting');
-        Case testCase3 = new Case(Status='Escalated', Origin='Web', Priority='High', Subject='CasePlusTesting');
-        Case testCase4 = new Case(Status='New', Origin='Web', Subject='CasePlusTesting'); //testing empty priority
+        //empty priority
+        Case testCaseNull = new Case(Status='New', Origin='Web', Subject='CasePlusTesting');
+        CasePlusController.CasePlusWrapper nullPriCPW = new CasePlusController.CasePlusWrapper(testCasenull, null, null, null);
 
         CasePlusController controller = new CasePlusController();
 
-        CasePlusController.CasePlusWrapper testCpw1 = new CasePlusController.CasePlusWrapper(testCase1, null, null, null);
-        CasePlusController.CasePlusWrapper testCpw2 = new CasePlusController.CasePlusWrapper(testCase2, null, null, null);
-        CasePlusController.CasePlusWrapper testCpw3 = new CasePlusController.CasePlusWrapper(testCase3, null, null, null);
-        CasePlusController.CasePlusWrapper testCpw4 = new CasePlusController.CasePlusWrapper(testCase4, null, null, null);
-
-        controller.filteredCasePlus.add(testCpw1);
-        controller.filteredCasePlus.add(testCpw2);
-        controller.filteredCasePlus.add(testCpw3);
-        controller.filteredCasePlus.add(testCpw4);
-
         controller.sortSelection = 'priAsc';
         controller.sortCases();
-        System.assertEquals(null, controller.filteredCasePlus[0].wrappedCase.Priority);
-        System.assertEquals('Low', controller.filteredCasePlus[1].wrappedCase.Priority);
-        System.assertEquals('Medium', controller.filteredCasePlus[2].wrappedCase.Priority);
-        System.assertEquals('High', controller.filteredCasePlus[3].wrappedCase.Priority);
+        System.assertEquals('Low', controller.filteredCasePlus[0].wrappedCase.Priority);
+        System.assertEquals('High', controller.filteredCasePlus[99].wrappedCase.Priority);
 
         controller.sortSelection = 'priDesc';
         controller.sortCases();
         System.assertEquals('High', controller.filteredCasePlus[0].wrappedCase.Priority);
-        System.assertEquals('Medium', controller.filteredCasePlus[1].wrappedCase.Priority);
-        System.assertEquals('Low', controller.filteredCasePlus[2].wrappedCase.Priority);
-        System.assertEquals(null, controller.filteredCasePlus[3].wrappedCase.Priority);
+        System.assertEquals('Low', controller.filteredCasePlus[99].wrappedCase.Priority);
+
+        //now testing a null priority
+        controller.filteredCasePlus.add(nullPriCPW);
+        
+        controller.sortSelection = 'priAsc';
+        controller.sortCases();
+        System.assertEquals(null, controller.filteredCasePlus[0].wrappedCase.Priority);
+
+        controller.sortSelection = 'priDesc';
+        controller.sortCases();
+        System.assertEquals(null, controller.filteredCasePlus[99].wrappedCase.Priority);
+        
     }
 
     @isTest static void TestToggleExpansion() {
@@ -205,10 +221,8 @@ public class TestCasePlusController {
 
     @isTest static void testFiltering() {
         Test.startTest();
-        Test.setCurrentPage(Page.CasePlus);
-        CasePlusController controller = new CasePlusController();
-        Contact testCon = new Contact(LastName='CasePlus Test Con');
-        Account testAcc = new Account(Name='CasePlus Test Acc');
+        Contact testCon = new Contact(LastName='CasePlusy Test Con');
+        Account testAcc = new Account(Name='CasePlusy Test Acc');
         insert testAcc;
         Policy__c testPol = new Policy__c(Account__c = testAcc.Id,
                                         Policy_Status__c = 'Active',
@@ -219,7 +233,6 @@ public class TestCasePlusController {
         insert testPol;
         insert testCon;
         Case testCase1 = new Case(Status='New', Origin='Web', AccountId=testAcc.Id, ContactId=testCon.id, Policy__c = testPol.Id);
-        insert testCase1;
         Case testCase2 = new Case(Status='New', Origin='Web', Priority='Low', Subject='Zoom');
         Case testCase3 = new Case(Status='Working', Origin='Web', Priority='Medium', Subject='Zoom', Description='Blah');
         Case testCase4 = new Case(Status='Escalated', Origin='Web', Priority='High', Subject='Boom');
@@ -229,11 +242,16 @@ public class TestCasePlusController {
         CasePlusController.CasePlusWrapper testCpw3 = new CasePlusController.CasePlusWrapper(testCase3, null, null, null);
         CasePlusController.CasePlusWrapper testCpw4 = new CasePlusController.CasePlusWrapper(testCase4, null, null, null);
 
+        Test.setCurrentPage(Page.CasePlus);
+        CasePlusController controller = new CasePlusController();
         controller.filteredCasePlus.add(testCpw1);
         controller.filteredCasePlus.add(testCpw2);
         controller.filteredCasePlus.add(testCpw3);
         controller.filteredCasePlus.add(testCpw4);
-        controller.wrappedCasePlus.addAll(controller.filteredCasePlus);
+        controller.wrappedCasePlus.add(testCpw1);
+        controller.wrappedCasePlus.add(testCpw2);
+        controller.wrappedCasePlus.add(testCpw3);
+        controller.wrappedCasePlus.add(testCpw4);
 
         //origin is not part of the search string I'm comparing to
         controller.filterText = 'web';
@@ -248,7 +266,7 @@ public class TestCasePlusController {
         controller.filterCases();
         System.assertEquals(1, controller.filteredCasePlus.size());
 
-        controller.filterText = 'CASEPLUS';
+        controller.filterText = 'CASEPLUSY';
         controller.filterCases();
         System.assertEquals(1, controller.filteredCasePlus.size());
 
