@@ -1,0 +1,65 @@
+<!-- Created by Andy Park on 5/14/2022 -->
+<!-- Last Updated on 5/15/2022 -->
+<!-- Description: This is VisualForce Page for Accounts by Region by Custom Controller -->
+
+<apex:page controller="RegionAccController" lightningStylesheets="true">
+    
+    <apex:stylesheet value="{!$Resource.DemoStyles}" />
+    
+    <apex:pageBlock Title="Accounts by Region">
+        You are viewing the 'Accounts by Region: NorthEast, MidWest, West, South, Others'
+    </apex:pageBlock>  
+    
+    <apex:pageBlock Title="Accounts by NorthEast Region">
+    </apex:pageBlock>
+    
+    <apex:pageBlock > 
+    	<apex:pageBlockTable value="{!northEastAccounts}" var="northEast">  
+            <apex:column value="{!northEast.BillingState}" />
+            <apex:column value="{!northEast.Name}" /> 
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+    <apex:pageBlock Title="Accounts by MidWest Region">
+    </apex:pageBlock>  
+        
+    <apex:pageBlock > 
+    	<apex:pageBlockTable value="{!midWestAccounts}" var="midWest">  
+            <apex:column value="{!midWest.BillingState}" />
+            <apex:column value="{!midWest.Name}" /> 
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+    <apex:pageBlock Title="Accounts by West Region">
+    </apex:pageBlock>  
+    
+    <apex:pageBlock > 
+    	<apex:pageBlockTable value="{!westAccounts}" var="west">  
+            <apex:column value="{!west.BillingState}" />
+            <apex:column value="{!west.Name}" /> 
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+    <apex:pageBlock Title="Accounts by South Region">
+    </apex:pageBlock>  
+    
+    <apex:pageBlock > 
+    	<apex:pageBlockTable value="{!southAccounts}" var="south">  
+            <apex:column value="{!south.BillingState}" />
+            <apex:column value="{!south.Name}" /> 
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+    <apex:pageBlock Title="Accounts by Others Region">
+    </apex:pageBlock>  
+    
+    <apex:pageBlock > 
+    	<apex:pageBlockTable value="{!othersAccounts}" var="others">  
+            <apex:column value="{!others.BillingState}" />
+            <apex:column value="{!others.Name}" /> 
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+     <apex:image id="logo" url="{!$Resource.RevatureLogo}" alt="Revature Logo" />
+        
+</apex:page>
