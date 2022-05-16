@@ -554,6 +554,10 @@
         <apexPage>RegionAccPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>UserPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Policy__c.Health_Insurance</recordType>
