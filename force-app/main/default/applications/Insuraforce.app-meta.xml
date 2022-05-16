@@ -39,7 +39,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>Tab</actionName>
-        <content>Home_Page1</content>
+        <content>Home_Page</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>standard-home</pageOrSobjectType>
         <type>Flexipage</type>
