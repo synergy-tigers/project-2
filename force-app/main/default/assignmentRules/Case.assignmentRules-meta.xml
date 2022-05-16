@@ -16,14 +16,15 @@
                 <operation>equals</operation>
                 <value>CT</value>
             </criteriaItems>
-        </ruleEntry>
-        <ruleEntry>
-            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
-            <assignedToType>User</assignedToType>
             <criteriaItems>
-                <field>Account.BillingCountry</field>
+                <field>Account.BillingState</field>
                 <operation>equals</operation>
-                <value>US</value>
+                <value>NY</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.BillingState</field>
+                <operation>equals</operation>
+                <value>VT</value>
             </criteriaItems>
             <criteriaItems>
                 <field>Account.BillingState</field>
@@ -42,7 +43,22 @@
             <criteriaItems>
                 <field>Account.BillingState</field>
                 <operation>equals</operation>
-                <value>NY</value>
+                <value>WV</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.BillingState</field>
+                <operation>equals</operation>
+                <value>VA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.BillingState</field>
+                <operation>equals</operation>
+                <value>FL</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.BillingState</field>
+                <operation>equals</operation>
+                <value>NC</value>
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
@@ -55,18 +71,32 @@
             </criteriaItems>
             <criteriaItems>
                 <field>Account.BillingState</field>
-                <operation>notEqual</operation>
-                <value>CT</value>
+                <operation>equals</operation>
+                <value>NE</value>
             </criteriaItems>
             <criteriaItems>
                 <field>Account.BillingState</field>
-                <operation>notEqual</operation>
-                <value>MA</value>
+                <operation>equals</operation>
+                <value>MO</value>
             </criteriaItems>
             <criteriaItems>
                 <field>Account.BillingState</field>
-                <operation>notEqual</operation>
-                <value>NY</value>
+                <operation>equals</operation>
+                <value>MN</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.BillingState</field>
+                <operation>equals</operation>
+                <value>IL</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Account.BillingCountry</field>
+                <operation>equals</operation>
+                <value>US</value>
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>

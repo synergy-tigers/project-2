@@ -12,7 +12,7 @@
     </head>
 
     <body class="slds-scope">
-        <apex:form>
+        <apex:form >
             <div class="slds-page-header">
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_2-of-12">

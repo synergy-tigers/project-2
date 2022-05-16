@@ -16,6 +16,21 @@
                 <operation>equals</operation>
                 <value>CT</value>
             </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>NY</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>VT</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>MA</value>
+            </criteriaItems>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
@@ -28,7 +43,22 @@
             <criteriaItems>
                 <field>Lead.State</field>
                 <operation>equals</operation>
-                <value>NY</value>
+                <value>WV</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>VA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>FL</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>NC</value>
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
@@ -42,7 +72,22 @@
             <criteriaItems>
                 <field>Lead.State</field>
                 <operation>equals</operation>
-                <value>MA</value>
+                <value>NE</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>MO</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>MN</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.State</field>
+                <operation>equals</operation>
+                <value>IL</value>
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
@@ -52,21 +97,6 @@
                 <field>Lead.Country</field>
                 <operation>equals</operation>
                 <value>USA</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Lead.State</field>
-                <operation>notEqual</operation>
-                <value>CT</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Lead.State</field>
-                <operation>notEqual</operation>
-                <value>MA</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Lead.State</field>
-                <operation>notEqual</operation>
-                <value>NY</value>
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
