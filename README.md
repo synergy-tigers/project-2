@@ -34,7 +34,7 @@
   
 ### Apex Testing
   * Ensure that Apex code has adequate test coverage and follow testing best practices both individually and as a team
-    - [ ] Andy
+    - [X] Andy
     - [X] Jonathan
     - [X] Kevin
     - [X] Rachel
