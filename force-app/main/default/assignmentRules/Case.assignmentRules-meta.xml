@@ -4,7 +4,7 @@
         <fullName>Insuraforce Case Assignment</fullName>
         <active>true</active>
         <ruleEntry>
-            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedTo>test-c5jxdphdolui@example.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
@@ -33,7 +33,7 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedTo>test-c5jxdphdolui@example.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
@@ -62,7 +62,7 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedTo>test-c5jxdphdolui@example.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
@@ -91,7 +91,7 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedTo>test-c5jxdphdolui@example.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
@@ -100,7 +100,7 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>test-egmjzzb5sdmu@example.com</assignedTo>
+            <assignedTo>test-c5jxdphdolui@example.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
