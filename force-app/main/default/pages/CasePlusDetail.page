@@ -11,8 +11,8 @@
         <apex:slds />
     </head>
 
-    <apex:pageBlock>
-        <apex:form>
+    <apex:pageBlock >
+        <apex:form >
             <apex:outputPanel styleClass="slds-breadcrumb slds-list_horizontal slds-wrap">
                 <apex:commandLink value="Back" action="{!goToCasePlusPage}" styleClass="slds-breadcrumb__item" /> >
                 <span style="font-weight: bold;">{!recordType} Record</span>
