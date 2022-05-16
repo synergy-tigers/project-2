@@ -40,10 +40,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>ApexTestSuite</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -111,14 +107,16 @@
         <name>HomePageLayout</name>
     </types>
     <types>
+        <members>Apex</members>
+        <members>Security</members>
+        <members>BusinessHours</members>
+        <name>Settings</name>
+    </types>
+    <types>
         <members>Account-Account Layout</members>
-        <members>BusinessBrand-Business Brand Layout</members>
-        <members>Campaign-Campaign Layout</members>
-        <members>CampaignMember-Campaign Member Page Layout</members>
         <members>Case-Case Layout</members>
         <members>CaseClose-Close Case Layout</members>
         <members>Contact-Contact Layout</members>
-        <members>Contract-Contract Layout</members>
         <members>Opportunity-Opportunity Layout</members>
         <members>OpportunityLineItem-Opportunity Product Layout</members>
         <members>Global-Global Layout</members>
@@ -128,9 +126,6 @@
         <members>Policy__c-Policy Layout</members>
         <members>Pricebook2-Price Book Layout</members>
         <members>PricebookEntry-Price Book Entry Layout</members>
-        <members>ProductServiceCampaignItem-Product Service Campaign Item Layout</members>
-        <members>ReturnOrder-Return Order Layout</members>
-        <members>Task-Task Layout</members>
         <name>Layout</name>
     </types>
     <version>54.0</version>

@@ -1,0 +1,21 @@
+<!--
+    Created By: Jonathan Thomas
+    Last Updated: 5/13/2022 
+    Description: second page of policy overview tab
+-->
+
+<apex:page controller="PolicyController" lightningStylesheets="true">
+    
+    <apex:pageBlock >
+        <apex:detail subject="{!polId}" inlineEdit="true"/>
+    </apex:pageBlock>
+    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandLink action="{!PrevPage}" value="Go Back!" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>  
+
+</apex:page>

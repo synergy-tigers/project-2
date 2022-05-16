@@ -40,4 +40,22 @@ public class DataFactory {
         }
         return OrderForTest;       
     }
+    
+    public static List<Policy__c> generatePolicies(Account acc, Contact con, Integer numPolicy){
+        List<Policy__c> PolicyForTest = new List<Policy__c>();
+        
+        for(Integer i = 0; i < numPolicy; i++){
+            Policy__c newPolicy = new Policy__c(Account__c = acc.Id,
+                                                Policy_Owner1__c = con.Id,
+                                                //Order__c = testOrders[1].Id,
+                                                Policy_Owner_Phone__c = con.Phone,
+                                                Policy_Cost__c = 1000,
+                                                Policy_Status__c = 'active',
+                                                ProductP__c = '19F', 
+                                                Policy_Quantity__c = 1);
+            
+           PolicyForTest.add(newPolicy);
+        }
+        return PolicyForTest;       
+    }
 }
