@@ -13,4 +13,5 @@
     <tabs>Policy__c</tabs>
     <tabs>VF_Opportunity</tabs>
     <tabs>Case_Overview</tabs>
+    <tabs>Accounts_By_Region</tabs>
 </CustomApplication>

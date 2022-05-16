@@ -183,7 +183,11 @@
     <tabs>Policy__c</tabs>
     <tabs>VF_Opportunity</tabs>
     <tabs>Case_Overview</tabs>
+    <tabs>Accounts_By_Region</tabs>
     <workspaceConfig>
+        <mappings>
+            <tab>Accounts_By_Region</tab>
+        </mappings>
         <mappings>
             <tab>Case_Overview</tab>
         </mappings>
