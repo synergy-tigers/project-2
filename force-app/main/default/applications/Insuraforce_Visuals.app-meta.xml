@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Visual aids for Insuraforce.  Visualforce pages and reports/dashboards.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Insuraforce Visuals</label>
+    <navType>Standard</navType>
+    <tabs>VF_Opportunity</tabs>
+    <tabs>Case_Overview</tabs>
+    <tabs>Policy_Overview</tabs>
+    <tabs>Accounts_By_Region</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Insuraforce_Visuals_UtilityBar</utilityBar>
+</CustomApplication>

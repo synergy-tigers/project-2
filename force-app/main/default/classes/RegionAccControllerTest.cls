@@ -8,7 +8,7 @@
 @isTest
 public with sharing class RegionAccControllerTest {
     //Test Setup; prepare the basic Accounts
-    @TestSetup
+    //@TestSetup
     public static void setupAccount() {    
         List<Account> testAccounts = new List<Account>();
         testAccounts.add(new Account(Name = 'Name1', BillingState = 'CA')); 
@@ -19,43 +19,43 @@ public with sharing class RegionAccControllerTest {
         Insert testAccounts;
     }
 
-    // This tests for positive     
+     // This tests for positive     
     @isTest
     public static void TP_WestRegionAccount() {
         Test.startTest(); 
-        RegionAccController testController = new RegionAccController();
-        
-        System.debug(testController.westAccounts.size());
-        System.assertEquals(1, testController.westAccounts.size());
+        RegionAccController controller = new RegionAccController();
+
+		System.debug(controller.westAccounts.size());
+        System.assertEquals(1, controller.westAccounts.size());
         Test.stopTest();
     }    
 
     @isTest
     public static void TP_MidWestRegionAccount() {
         Test.startTest();  
-        RegionAccController testController = new RegionAccController();
+  		RegionAccController controller = new RegionAccController();
         
-        System.debug(testController.midWestAccounts.size());
-        System.assertEquals(1, testController.midWestAccounts.size());
+		System.debug(controller.midWestAccounts.size());
+        System.assertEquals(1, controller.midWestAccounts.size());
         Test.stopTest();
     }    
 
     @isTest
     public static void TP_NorthEastRegionAccount() {
         Test.startTest();   
-        RegionAccController testController = new RegionAccController();
+		RegionAccController controller = new RegionAccController();
 
-        System.debug(testController.northEastAccounts.size());
-        System.assertEquals(1, testController.northEastAccounts.size());
+		System.debug(controller.northEastAccounts.size());
+        System.assertEquals(1, controller.northEastAccounts.size());
         Test.stopTest();
     }    
     
     @isTest
     public static void TP_SouthRegionAccount() {
         Test.startTest(); 
-        RegionAccController testController = new RegionAccController();
-        
-        System.assertEquals(1, testController.southAccounts.size());
+		RegionAccController controller = new RegionAccController();
+
+        System.assertEquals(1, controller.southAccounts.size());
         Test.stopTest();
     }    
 
@@ -63,9 +63,9 @@ public with sharing class RegionAccControllerTest {
     @isTest
     public static void TP_OthersRegionAccount() {
         Test.startTest();    
-        RegionAccController testController = new RegionAccController();
-        
-        System.assertEquals(1, testController.othersAccounts.size());
+		RegionAccController controller = new RegionAccController();
+
+        System.assertEquals(1, controller.othersAccounts.size());
         Test.stopTest();
     }    
     
@@ -81,9 +81,30 @@ public with sharing class RegionAccControllerTest {
         
         Insert testAccounts;
 
-        RegionAccController testController = new RegionAccController();
+        RegionAccController controller = new RegionAccController();
 
-        System.assertEquals(153, testController.northEastAccounts.size());
+        System.assertEquals(153, controller.northEastAccounts.size());
+        Test.stopTest();
+    }
+    
+    // This tests for 'Restricted User', run as an administrator.
+    @isTest
+    public static void TRU_PreventDuplicatePhone() {
+        Test.startTest(); 
+        User admin = [SELECT name FROM User 
+                        WHERE Profile.name = 'System Administrator' LIMIT 1];
+        
+        List<Account> testAccounts = new List<Account>();
+        testAccounts.add(new Account(Name = 'Test-WestReion', BillingState = 'CA'));
+        Insert testAccounts;
+
+        List<Account> westAccounts = new List<Account>();       
+        westAccounts = [SELECT BillingState, Name FROM Account
+                  WHERE BillingState IN ('AK','AZ','CA','CO','HI',
+                  	    'ID','MT','NM','NV','OR','UT','WA','WY') 
+                        ORDER BY BillingState ASC];
+
+        System.assertEquals(1, westAccounts.size());
         Test.stopTest();
     }
 }
