@@ -107,6 +107,12 @@
         <name>HomePageLayout</name>
     </types>
     <types>
+        <members>Apex</members>
+        <members>Security</members>
+        <members>BusinessHours</members>
+        <name>Settings</name>
+    </types>
+    <types>
         <members>Account-Account Layout</members>
         <members>Case-Case Layout</members>
         <members>CaseClose-Close Case Layout</members>
