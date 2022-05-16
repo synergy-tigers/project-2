@@ -56,12 +56,12 @@
 
 ### Visualforce
   * A Visualforce page relevant to the business use case
-    - [ ] `Andy` Account
+    - [X] `Andy` Account
     - [X] `Jonathan` Policies
     - [X] `Kevin` Opportunities
     - [X] `Rachel` Cases
   * Associated custom Apex code (either through a Custom Controller or Controller Extension)
-    - [ ] Andy
+    - [X] Andy
     - [X] Jonathan
     - [X] Kevin
     - [X] Rachel
@@ -77,11 +77,11 @@
 ### Service Cloud
   * `Kevin` Case assignment rules
   * `Kevin` Case auto-response rules
-  * `Kevin` Web-to-case
+  * `Rachel` Web-to-case
   * `Kevin` Case path
 
 ### Process Automation
-  * Workflow rule
+  * `Unassigned` Workflow rule
   * `Jonathan` Process configured through Process Builder
   * `Jonathan` Multi-step approval process
   * `Kevin` Schedule-triggered flow
