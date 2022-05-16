@@ -86,17 +86,4 @@ public with sharing class RegionAccControllerTest {
         System.assertEquals(153, testController.northEastAccounts.size());
         Test.stopTest();
     }
-    
-    // This tests for 'Restricted User', run as an administrator.
-    @isTest
-    public static void TRU_PreventDuplicatePhone() {
-        Test.startTest(); 
-        User admin = [SELECT name FROM User 
-                        WHERE Profile.name = 'System Administrator' LIMIT 1];
-        
-        RegionAccController testController = new RegionAccController();
-
-        System.assertEquals(1, testController.westAccounts.size());
-        Test.stopTest();
-    }
 }
