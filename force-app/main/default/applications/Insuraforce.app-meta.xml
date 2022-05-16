@@ -71,7 +71,9 @@
     <tabs>Policy__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
+    <tabs>Accounts_By_Region</tabs>
     <tabs>VF_Opportunity</tabs>
+    <tabs>Policy_Overview</tabs>
     <tabs>Case_Overview</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Insuraforce_UtilityBar</utilityBar>
