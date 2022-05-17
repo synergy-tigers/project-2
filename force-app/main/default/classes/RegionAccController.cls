@@ -1,11 +1,3 @@
-/* 
-    Created by Andy Park on 5/14/2022 
-	Updated on 5/15/2022 
-    Description: This is the controller for RegionAccPage.page.
-                 This controller is using SOQL Query and get lists of Accounts by Region
-				 in order to show them in page block tables.
-*/
-
 public class RegionAccController { 
     public List<Account> westAccounts {get; set;}
     public List<Account> midWestAccounts {get; set;}
@@ -13,24 +5,39 @@ public class RegionAccController {
     public List<Account> southAccounts {get; set;}
     public List<Account> othersAccounts {get; set;}
     
-    public RegionAccController () {
-        westAccounts = [SELECT BillingState, Name FROM Account
+    public Id accId {get; set;}
+    
+    public RegionAccController ()
+    {
+        accId = null;
+        
+        westAccounts = [SELECT Id, Name, BillingState FROM Account
                   WHERE BillingState IN ('AK','AZ','CA','CO','HI',
-                  	    'ID','MT','NM','NV','OR','UT','WA','WY') 
-                        ORDER BY BillingState ASC];
-        midWestAccounts = [SELECT BillingState, Name FROM Account
+                  	  'ID','MT','NM','NV','OR','UT','WA','WY')];
+        midWestAccounts = [SELECT Id, Name, BillingState FROM Account
                   WHERE BillingState IN ('IA','IL','IN','KS','MI',
-                        'MN','MO','ND','NE','OH','SD','WI')
-                        ORDER BY BillingState ASC];
-        northEastAccounts = [SELECT BillingState, Name FROM Account
+                      'MN','MO','ND','NE','OH','SD','WI')];
+        northEastAccounts = [SELECT Id, Name, BillingState FROM Account
                   WHERE BillingState IN ('CT','MA','ME','NH','NJ',
-                        'NY','PA','RI','VT')
-                        ORDER BY BillingState ASC];
-        southAccounts = [SELECT BillingState, Name FROM Account
+                      'NY','PA','RI','VT')];
+        southAccounts = [SELECT Id, Name, BillingState FROM Account
                   WHERE BillingState IN ('AL','AR','DC','DE','FL',
-                        'GA','KY','LA','MD','MS','NC','OK','SC','TN','TX','VA','WV')
-                        ORDER BY BillingState ASC];
-        othersAccounts = [SELECT BillingState, Name FROM Account
+                      'GA','KY','LA','MD','MS','NC','OK','SC','TN','TX','VA','WV')];
+        othersAccounts = [SELECT Id, Name, BillingState FROM Account
                   WHERE BillingState = null];
     }   
+    
+    //reference to 2nd page
+    public PageReference NextPage() {
+        //System.debug('NextPage()'+accId);
+        accId = Apexpages.currentpage().getParameters().get('accId');
+        //System.debug('NextPage()'+accId);
+        return Page.RegionAccPage2;
+    }
+    
+    //reference to 1st page
+    public PageReference PrevPage() {
+        //System.debug('PrevPage()'+accId);
+        return Page.RegionAccPage;
+    }    
 }

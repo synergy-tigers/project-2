@@ -1,0 +1,23 @@
+<!-- This is VisualForce Page for Accounts by Region by Custom Controller -->
+<!-- Created by Andy Park on 5/14/2022 -->
+<!-- Updated on 5/15/2022 -->
+
+<apex:page controller="RegionAccController" lightningStylesheets="true">
+    
+    <apex:stylesheet value="{!$Resource.DemoStyles}" />
+   
+    <apex:pageBlock >
+        <apex:detail subject="{!accId}" inlineEdit="true" />        
+    </apex:pageBlock>
+
+	<apex:form >
+    	<apex:pageBlock >
+        	<apex:pageBlockButtons >
+                <apex:commandLink action="{!PrevPage}" value="Go Back!" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>    
+    
+     <apex:image id="logo" url="{!$Resource.RevatureLogo}" alt="Revature Logo" />
+        
+</apex:page>

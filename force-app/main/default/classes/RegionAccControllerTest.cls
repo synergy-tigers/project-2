@@ -19,6 +19,36 @@ public with sharing class RegionAccControllerTest {
         Insert testAccounts;
     }
 
+    //This tests if the next page is loading
+    @isTest
+    public static void TP_NextPage() {
+        Test.startTest();
+   
+        Test.setCurrentPage(Page.RegionAccPage);
+        RegionAccController wiz = new RegionAccController();    
+   
+        Test.setCurrentPageReference(wiz.NextPage());
+        Test.stopTest();
+   
+        System.assertEquals(Page.RegionAccPage2.getUrl(), ApexPages.currentPage().getUrl());        
+        System.assertEquals(wiz.accId, null);
+    }
+
+    //This tests if the previous page loads
+    @isTest
+    public static void TP_PrevPage() {
+        Test.startTest();
+    
+        Test.setCurrentPage(Page.RegionAccPage2);
+        RegionAccController wiz = new RegionAccController();
+    
+        Test.setCurrentPageReference(wiz.PrevPage());
+        Test.stopTest();
+  
+        System.assertEquals(Page.RegionAccPage.getUrl(), ApexPages.currentPage().getUrl());
+        System.assertEquals(wiz.accId, null);
+    }
+
     // This tests for positive     
     @isTest
     public static void TP_WestRegionAccount() {
@@ -61,7 +91,7 @@ public with sharing class RegionAccControllerTest {
 
      // This tests for negative 
     @isTest
-    public static void TP_OthersRegionAccount() {
+    public static void TN_OthersRegionAccount() {
         Test.startTest();    
         RegionAccController testController = new RegionAccController();
         
