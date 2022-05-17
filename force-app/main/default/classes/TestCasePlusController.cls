@@ -103,7 +103,7 @@ public class TestCasePlusController {
 
         controller.sortSelection = 'priDesc';
         controller.sortCases();
-        System.assertEquals(null, controller.filteredCasePlus[99].wrappedCase.Priority);
+        System.assertEquals(null, controller.filteredCasePlus[100].wrappedCase.Priority);
         
     }
 
