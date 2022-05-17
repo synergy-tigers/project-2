@@ -556,8 +556,6 @@
         <apexPage>RegionAccPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-<<<<<<< Updated upstream
-=======
     <pageAccesses>
         <apexPage>RegionAccPage2</apexPage>
         <enabled>true</enabled>
@@ -566,7 +564,6 @@
         <apexPage>UserPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
->>>>>>> Stashed changes
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Policy__c.Health_Insurance</recordType>
