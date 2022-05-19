@@ -11,19 +11,19 @@ public class RegionAccController {
     {
         accId = null;
         
-        westAccounts = [SELECT Id, Name, BillingState FROM Account
+        westAccounts = [SELECT Id, Name, CreatedDate, BillingState FROM Account
                   WHERE BillingState IN ('AK','AZ','CA','CO','HI',
                   	  'ID','MT','NM','NV','OR','UT','WA','WY')];
-        midWestAccounts = [SELECT Id, Name, BillingState FROM Account
+        midWestAccounts = [SELECT Id, Name, CreatedDate, BillingState FROM Account
                   WHERE BillingState IN ('IA','IL','IN','KS','MI',
                       'MN','MO','ND','NE','OH','SD','WI')];
-        northEastAccounts = [SELECT Id, Name, BillingState FROM Account
+        northEastAccounts = [SELECT Id, Name, CreatedDate, BillingState FROM Account
                   WHERE BillingState IN ('CT','MA','ME','NH','NJ',
                       'NY','PA','RI','VT')];
-        southAccounts = [SELECT Id, Name, BillingState FROM Account
+        southAccounts = [SELECT Id, Name, CreatedDate, BillingState FROM Account
                   WHERE BillingState IN ('AL','AR','DC','DE','FL',
                       'GA','KY','LA','MD','MS','NC','OK','SC','TN','TX','VA','WV')];
-        othersAccounts = [SELECT Id, Name, BillingState FROM Account
+        othersAccounts = [SELECT Id, Name, CreatedDate, BillingState FROM Account
                   WHERE BillingState = null];
     }   
     

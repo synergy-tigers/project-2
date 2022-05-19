@@ -3,97 +3,89 @@
 <!-- Updated on 5/15/2022 -->
 
 <apex:page controller="RegionAccController" lightningStylesheets="true">
-    <apex:stylesheet value="{!$Resource.DemoStyles}" />
-    
-<apex:form >   
-    <apex:pageBlock Title="Accounts by Region">
-        You are viewing the 'Accounts by Region: NorthEast, MidWest, West, South, Others'
-    </apex:pageBlock>      
+    <apex:slds />    
+    <apex:form >   
+        <apex:pageBlock Title="Accounts by Region">
+            You are viewing the 'Accounts by Region: NorthEast, MidWest, West, South, Others'
+        </apex:pageBlock>      
 
-    <apex:pageBlock Title="Accounts by NorthEast Region">
-    </apex:pageBlock>
-    
-    <apex:pageBlock id="table">        
-    	<apex:pageBlockTable value="{!northEastAccounts}" var="northEast">  
-            <apex:column headerValue="Account Name" >
-                <apex:commandLink value="{!northEast.Name}" action="{!NextPage}">
-                    <apex:param name="accId" value="{!northEast.Id}" />
-                </apex:commandLink>        
-            </apex:column>            
+        <apex:pageBlock Title="Accounts by NorthEast Region">
+            <apex:pageBlockTable value="{!northEastAccounts}" var="northEast">  
+                <apex:column headerValue="Account Name" >
+                    <apex:commandLink value="{!northEast.Name}" action="{!NextPage}">
+                        <apex:param name="accId" value="{!northEast.Id}" />
+                    </apex:commandLink>
+                    <apex:variable var="daysCreated" value="{!(TODAY() - DATEVALUE(northEast.CreatedDate))}" />
+                    <apex:outputPanel rendered="{!If((daysCreated < 10), true, false)}">
+                        &nbsp;<div class="slds-badge">NEW</div>
+                    </apex:outputPanel>
+                </apex:column>          
              
-            <apex:column value="{!northEast.BillingState}" />          
-        </apex:pageBlockTable>
-    </apex:pageBlock>
-</apex:form> 
+                <apex:column value="{!northEast.BillingState}" />          
+            </apex:pageBlockTable>
+        </apex:pageBlock>
     
- <apex:form >     
-    <apex:pageBlock Title="Accounts by MidWest Region">
-    </apex:pageBlock>  
-
-     <apex:pageBlock id="table">        
-    	<apex:pageBlockTable value="{!midWestAccounts}" var="midWest">  
-            <apex:column headerValue="Account Name" >
+        <apex:pageBlock Title="Accounts by MidWest Region">
+            <apex:pageBlockTable value="{!midWestAccounts}" var="midWest">  
+                <apex:column headerValue="Account Name" >
                 <apex:commandLink value="{!midWest.Name}" action="{!NextPage}">
                     <apex:param name="accId" value="{!midWest.Id}" />
-                </apex:commandLink>        
-            </apex:column>            
-            
-            <apex:column value="{!midWest.BillingState}" />          
-        </apex:pageBlockTable>
-    </apex:pageBlock>
-</apex:form>
-    
-<apex:form >
-    <apex:pageBlock Title="Accounts by West Region">
-    </apex:pageBlock>    
+                </apex:commandLink> 
+                <apex:variable var="daysCreated" value="{!(TODAY() - DATEVALUE(midWest.CreatedDate))}" />
+                <apex:outputPanel rendered="{!If((daysCreated < 10), true, false)}">
+                    &nbsp;<div class="slds-badge">NEW</div>
+                </apex:outputPanel>    
+                </apex:column>            
+                <apex:column value="{!midWest.BillingState}" />          
+            </apex:pageBlockTable>
+        </apex:pageBlock>
 
-    <apex:pageBlock id="table">        
-    	<apex:pageBlockTable value="{!westAccounts}" var="west"> 
-            <apex:column headerValue="Account Name" >
-                <apex:commandLink value="{!west.Name}" action="{!NextPage}">
-                    <apex:param name="accId" value="{!west.Id}" />
-                </apex:commandLink>        
-            </apex:column>            
+        <apex:pageBlock Title="Accounts by West Region">
+            <apex:pageBlockTable value="{!westAccounts}" var="west"> 
+                <apex:column headerValue="Account Name" >
+                    <apex:commandLink value="{!west.Name}" action="{!NextPage}">
+                        <apex:param name="accId" value="{!west.Id}" />
+                    </apex:commandLink>
+                    <apex:variable var="daysCreated" value="{!(TODAY() - DATEVALUE(west.CreatedDate))}" />
+                    <apex:outputPanel rendered="{!If((daysCreated < 10), true, false)}">
+                        &nbsp;<div class="slds-badge">NEW</div>
+                    </apex:outputPanel>
+                </apex:column>            
            
-            <apex:column value="{!west.BillingState}" />          
-        </apex:pageBlockTable>
-    </apex:pageBlock>
-</apex:form> 
+                <apex:column value="{!west.BillingState}" />          
+            </apex:pageBlockTable>
+        </apex:pageBlock>
     
-<apex:form >       
-    <apex:pageBlock Title="Accounts by South Region">
-    </apex:pageBlock>     
-
-    <apex:pageBlock id="table">        
-    	<apex:pageBlockTable value="{!southAccounts}" var="south"> 
-            <apex:column headerValue="Account Name" > 
-                <apex:commandLink value="{!south.Name}" action="{!NextPage}">
-                    <apex:param name="accId" value="{!south.Id}" />
-                </apex:commandLink>        
-            </apex:column>            
+        <apex:pageBlock Title="Accounts by South Region">
+        	<apex:pageBlockTable value="{!southAccounts}" var="south"> 
+                <apex:column headerValue="Account Name" > 
+                    <apex:commandLink value="{!south.Name}" action="{!NextPage}">
+                        <apex:param name="accId" value="{!south.Id}" />
+                    </apex:commandLink>
+                    <apex:variable var="daysCreated" value="{!(TODAY() - DATEVALUE(south.CreatedDate))}" />
+                    <apex:outputPanel rendered="{!If((daysCreated < 10), true, false)}">
+                        &nbsp;<div class="slds-badge">NEW</div>
+                    </apex:outputPanel>        
+                </apex:column>            
             
-            <apex:column value="{!south.BillingState}" />          
-        </apex:pageBlockTable>
-    </apex:pageBlock>
-</apex:form>
-    
-<apex:form >
-    <apex:pageBlock Title="Accounts by Others Region">
-    </apex:pageBlock>      
+                <apex:column value="{!south.BillingState}" />          
+            </apex:pageBlockTable>
+        </apex:pageBlock>
 
-    <apex:pageBlock id="table">        
-    	<apex:pageBlockTable value="{!othersAccounts}" var="others">  
+        <apex:pageBlock Title="Accounts by Others Region">
+        <apex:pageBlockTable value="{!othersAccounts}" var="others">  
             <apex:column headerValue="Account Name" >             
                 <apex:commandLink value="{!others.Name}" action="{!NextPage}">
                     <apex:param name="accId" value="{!others.Id}" />
-                </apex:commandLink>        
+                </apex:commandLink>
+                <apex:variable var="daysCreated" value="{!(TODAY() - DATEVALUE(others.CreatedDate))}" />
+                <apex:outputPanel rendered="{!If((daysCreated < 10), true, false)}">
+                    &nbsp;<div class="slds-badge">NEW</div>
+                </apex:outputPanel>        
             </apex:column>        
              
             <apex:column value="{!others.BillingState}" />          
         </apex:pageBlockTable>
     </apex:pageBlock>
-</apex:form> 
-    
-    <apex:image id="logo" url="{!$Resource.RevatureLogo}" alt="Revature Logo" />
-        
+</apex:form>         
 </apex:page>
