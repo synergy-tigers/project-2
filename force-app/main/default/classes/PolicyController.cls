@@ -45,9 +45,9 @@ public class PolicyController {
     public void FilterList(){
         filteredList = new List<Policy__c>();
         for(Policy__c currPol : Policies){
-            String lowercasePol = currPol.Name.toLowerCase();
+            String fieldsString = currPol.Name + ' ' + currPol.Account__r.Name + ' ' + currPol.ProductP__c;
             //System.debug(lowercasePol);
-            if(lowercasePol.Contains(filter)){ 
+            if(fieldsString.containsIgnoreCase(filter)){ 
                 //System.debug('contoller filter: ' + lowercasePol);
                 filteredList.add(currPol);
             }

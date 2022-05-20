@@ -18,7 +18,7 @@
                 <span style="font-weight: bold;">{!recordType} Record</span>
             </apex:outputPanel>
         </apex:form>
-        <apex:detail subject="{!recordId}" />
+        <apex:detail subject="{!recordId}" inlineEdit="true" />
     </apex:pageBlock>
 
     </html>
